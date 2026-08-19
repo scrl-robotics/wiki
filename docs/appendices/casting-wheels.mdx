@@ -1,0 +1,78 @@
+---
+sidebar_position: 1
+slug: /appendices/casting-wheels
+---
+
+# Appendix I: Casting Custom Wheels
+
+Custom wheels made out of cast polyurethane are currently the most popular option for high-performance wheels due to their excellent durability and traction, and ability to be made into any size and shape you need.
+
+Custom wheels are usually made by **3D-printing a hub** (commonly TPU), placing it in a **mold**, and pouring a polyurethane epoxy that cures to form the tire. The most common polyurethane used is **Vytaflex from Smooth-On**, a 2-part rubber epoxy originally intended to create molds for concrete. It is relatively inexpensive, easy to obtain, and easy to use, making it a good choice.
+
+Vytaflex can be purchased from **Reynolds Advanced Materials** in the US, or **Sculpture Supply Canada** in Canada.
+
+![Cast wheel sample](/img/wiki/appendices/casting-wheel-sample.png)
+
+Vytaflex comes in several hardnesses, ranging from **10-60 Shore A**:
+- Softer tires will provide more traction but wear faster
+- Higher hardnesses will last longer and be slightly more durable
+
+**40A** is a good starting point for beetleweights, but you can safely go all the way down to 20A if you don't mind replacing wheels often.
+
+## Designing Retaining Features
+
+Vytaflex itself does not adhere particularly well to plastics, so hubs for cast wheels must have **features to physically retain** the Vytaflex tire. There are several ways to do this:
+
+- **T-Slots**
+
+![T-slot retaining feature](/img/wiki/appendices/casting-t-slot.jpg)
+
+- **Loops**
+
+![Loop retaining feature](/img/wiki/appendices/casting-loop.jpg)
+
+- **Gyroid Interface**
+
+![Gyroid retaining feature](/img/wiki/appendices/casting-gyroid.jpg)
+
+- **Internal Cutouts**
+
+![Internal cutout retaining feature](/img/wiki/appendices/casting-cutout.jpg)
+
+Currently, the **gyroid interface** seems to be the most popular method. These wheels can be made by modelling a tube with an ID 2-3mm smaller than the wheel, an OD 3-4mm larger than the wheel, and the same height as the wheel. Overlap this tube with the wheel in your slicer and set it to **15% gyroid infill, 0 perimeters/top layers/bottom layers, and 0 infill anchor**. This should result in a ring of gyroid infill around your wheel which can retain the Vytaflex tire.
+
+## Designing Molds
+
+Molds can be a simple printed **PLA "cup"** that the hub sits in. You can print a pin to center the wheel, or use a screw to attach the wheel to the mold – this also stops the wheel from floating atop the Vytaflex which can happen sometimes. Some people opt to design more complex multi-part molds to make removal easier, but this has not generally been found to be necessary.
+
+Some sort of **mold release** must be applied to the inside of the mold to aid with releasing the Vytaflex – without this, the rubber will bond slightly to the mold and make it extremely difficult to remove.
+
+- You can use a dedicated mold release for epoxy which offers the best results, but these are expensive and toxic.
+- A cheaper and safer method that works almost as well is to **smear a layer of Vaseline** over the inside of the mold.
+
+## Mixing and Dyeing Vytaflex
+
+Vytaflex needs to be mixed in **equal parts A and B in terms of weight**. Thus, you can simply use a scale to measure out equal parts A and B by placing a cup on the scale, zeroing the scale, adding an amount of part A, noting the weight, then zeroing the scale again and adding an equivalent amount of part B.
+
+:::warning
+Many common dyes will react with Vytaflex and affect its curing, so be careful when choosing a dye.
+:::
+
+- **Smooth-On "So-Strong"** dyes are made specifically for polyurethane epoxies. They work very well but are expensive.
+- For a cheap option that will not affect Vytaflex's properties, use **mica powder** (AKA nail polish coloring).
+
+## Pouring and Curing
+
+Once combined, the two parts must be **mixed very well**, as improperly mixed Vytaflex will not cure properly. Once mixed sufficiently, carefully pour the Vytaflex into your mold.
+
+- Keep in mind that it is very viscous, making it more difficult to control the flow. It helps to crush the opening of the cup to create a narrower flow, or even better, use a large single-use syringe.
+- Vytaflex remains pourable for about **10 minutes** after mixing, so make sure to pour your wheels quickly and avoid mixing excessively large batches.
+- Full cure time depends on the hardness of Vytaflex used, but generally it's best to wait overnight before de-molding your wheels. **16 hours** is a safe time to budget for a full cure.
+- You can also heat the wheels to promote a faster and stronger cure – Smooth-On recommends a temperature of **60 degrees C** for this. A filament dryer or 3D printer enclosure is a great way to hit these temperatures.
+
+## Storing Vytaflex
+
+After being opened, **part A** of Vytaflex will slowly begin to harden on its own, limiting its shelf life. This hardening occurs due to exposure to moisture in the air, so sealing the bottle well can extend its life.
+
+- You can also buy a dry gas spray to further extend shelf life, though this is rarely necessary.
+- **Part B** has a more or less indefinite shelf life.

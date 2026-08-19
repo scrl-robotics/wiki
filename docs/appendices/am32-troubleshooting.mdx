@@ -1,0 +1,114 @@
+---
+sidebar_position: 5
+slug: /appendices/am32-troubleshooting
+---
+
+# Appendix V: Troubleshooting AM32 ESCs
+
+:::note
+As mentioned in the section on programming ESCs, AM32 ESCs are powerful but can be finicky at times. The newest 2.19 release seems to have fixed many of these issues, but most ESCs do not come with up-to-date firmware and there still may be unknown bugs.
+:::
+
+There are many, many things that could cause an ESC to not function properly, but here are some common issues and potential fixes that might be able to serve as a good starting point for troubleshooting. However, this is certainly **not a comprehensive list of fixes**, as brushless ESCs are quite complex.
+
+If the fixes in this section do not work, joining the **AM32 Discord Server** and asking in there is the recommended path for more personalized advice.
+
+## AM32 ESC Beep Meanings
+
+Like other brushless ESCs, AM32 ESCs will make beeping noises through the motor to indicate their status. Knowing what these different beeps mean is very helpful for troubleshooting.
+
+- Upon startup, the ESC will make a **slow rising tri-tone** noise. This simply indicates that the ESC is powered on. This tri-tone will repeat every few 2 seconds or so until the ESC receives a signal.
+- Once a signal is received, the slow tri-tone will stop. Once the ESC detects the neutral position (-100 in unidirectional or 0 in bidirectional, aka the point where the motor is stationary), it will make a **single fast rising tri-tone** noise and arm. At this point the ESC should start working normally.
+- If the ESC starts making a **repeated rising single-tone** noise, this means it has entered throttle calibration mode. This often occurs when it detects a high throttle value upon powering on, most commonly due to not setting unidirectional/bidirectional correctly. AM32 2.19 allows you to disable throttle calibration mode, which can be helpful to avoid entering it accidentally when loading into the arena.
+
+## ESC Not Receiving Signal
+
+If your ESC is repeatedly making the slow rising tri-tone noise, this means it is **not receiving a signal**. This is usually caused by something simple such as:
+- Receiver not receiving power
+- Receiver not bound to transmitter
+- Signal wires plugged in incorrectly/backwards
+- Broken signal wires
+
+If you've ruled out all these issues, it's likely that either something may be damaged physically, or there is a firmware bug.
+
+## ESC Not Arming or Entering Throttle Calibration Mode
+
+This happens when the ESC is **not receiving a neutral input value**.
+
+- If your ESC is connected to the throttle channel but is set to **bidirectional**, it will not arm when the stick is at the bottom (since this is the full-speed reverse position rather than the neutral position), but instead when it is moved to the middle.
+- On the other hand, if your ESC is connected to a drive channel but is set to **unidirectional**, it will likely enter calibration mode as it detects a throttle value of 50% rather than 0%.
+
+There are also other things that may cause these issues:
+
+- **Transmitter trim:** usually trim adjustments are small enough to be within the input deadzone and will still allow the ESC to arm, but if your trims are particularly extreme the ESC may not be able to read it as a neutral value causing it to not arm.
+- **Transmitter endpoints:** check if your transmitter endpoints span -100% to +100%, which is the full range of inputs. If the range is too small, the ESC may not be able to arm properly. How to set endpoints depends on your model of transmitter – take a look at the user guide to find out how.
+- **ESC servo settings:** As mentioned before, in bidirectional mode the ESC will only arm when it detects a signal of the set midpoint input +/- the set deadzone, while in unidirectional mode the ESC will only arm when it detects a signal below the set minimum input + the deadzone. If the servo settings are set incorrectly on the ESC, it may be looking for a midpoint or minimum value that is different from what the receiver is outputting. The recommended servo input settings for ESCs are approximately **1020-1500-1980**.
+
+## ESC Arming, But Not Responsive
+
+This is an uncommon issue and is usually caused by the receiver not outputting signals other than the zero value, due to things like incorrectly set mixes. However, this may also be caused by AM32 bugs.
+
+For example, the **NeutronRC 70A** running older versions of AM32 would do this if you set the running brake level to 1.
+
+Most transmitters will allow you to read the signal values that they're outputting – if you've verified that the transmitter is in fact outputting the correct values, try updating your AM32 version to fix any potential bugs.
+
+## Motor Stuttering or Desyncing when Attempting to Spin Up
+
+This is a common issue that can be difficult to troubleshoot due to the number of factors that can cause it. Some common fixes are listed below, but they are not guaranteed to always work.
+
+:::warning
+Avoid trying to spin the motor up for prolonged periods when experiencing these issues as it will generate a lot of heat in the motor and/or ESC and potentially cause damage.
+:::
+
+### Non-ESC Fixes
+
+If one of the motor's phase wires is disconnected due to damage/poor soldering, or if two or more phases are shorted together, the motor will stutter instead of spinning up. When faced with desync issues, it's a good idea to **check all connections between the motor and the ESC**, and verify that none of the phases are broken or shorting.
+
+### ESC Settings Fixes
+
+Here are some settings changes that could potentially rectify desync issues:
+- Increase startup power
+- Increase motor timing
+- Turn off stuck rotor protection
+- Relax the current limit
+- Turn off sinusoidal startup
+- Turn on brake on stop and increase stopped brake level
+- Ensure motor poles and KV are set correctly
+
+### ESC Firmware Fixes
+
+Sometimes, certain ESCs on certain versions of AM32 will struggle to work with certain types of motors for some reason. Try updating your ESC to the latest AM32 version to see if the issue resolves itself. If not, you can also try older versions of firmware to see if they work.
+
+## Motor Spinning Up Very Slowly and Weakly
+
+This happens most commonly as a result of **incorrectly set KV or motor poles**. Make sure these values match the specifications of your motor.
+
+If they do and issues still persist, it is likely a firmware issue – try updating your ESC to the latest version of AM32.
+
+:::note
+If the motor spins up slightly the first time you attempt to spin up after powering on but refuses to spin on subsequent attempts, it is likely a firmware issue rather than a settings issue.
+:::
+
+## AM32 Firmware Update Tips
+
+The latest versions of AM32 can be found on their **new Github**. Versions prior to 2.05 can be found on their **old Github**.
+
+There are many different files under each firmware version configured for different ESCs with a common naming scheme: `AM32–[ESC brand]–[processor model]–[version]`. In general, if you know what brand your ESC is from and what processor it uses (you can identify them by reading the tiny text engraved on the chip), it's pretty easy to choose the correct file. If you're unsure, join the AM32 Discord server and ask which file will work with your ESC.
+
+![AM32 GitHub online tool list](/img/wiki/appendices/am32-github-online.png)
+
+![AM32 GitHub offline tool list](/img/wiki/appendices/am32-github-offline.png)
+
+### Online vs Offline Tools
+
+The **online tool** (am32.ca) is the more convenient tool as it automatically recognizes the configuration of firmware on your ESC and loads the latest versions of that particular type, from which you can choose one and flash directly.
+
+Unfortunately, it has been found to be unreliable for updating firmware as it often gets stuck while flashing. If it gets stuck, you must close the website and disconnect your ESC. This will not damage your ESC, but will **corrupt the firmware** – to recover the firmware, you must manually download the appropriate firmware file from the AM32 Github and upload it to the ESC.
+
+The **offline tool** is much more reliable for updating and flashing firmware, as it does not have issues with getting stuck during flashing. It is less convenient though, as you must manually download the appropriate firmware file from the AM32 Github and upload it to the ESC.
+
+:::note
+The configurator will sometimes say **"FLASH FAILURE"** after attempting to flash firmware – don't worry about this, it is a bug and the firmware has flashed successfully as long as the bar reached 100%.
+:::
+
+Both the online and offline tool have an indicator that shows the firmware configuration and version. However, keep in mind that this **version indicator is unreliable** and often does not accurately reflect the version of firmware that is actually on the ESC. After updating firmware, sometimes the configurator must be closed entirely and the ESC power-cycled before the indicator will accurately reflect the new firmware version.

@@ -1,0 +1,60 @@
+---
+sidebar_position: 4
+slug: /appendices/brushed-motor-noise
+---
+
+# Appendix IV: Dealing With Brushed Motor Noise
+
+One of the downsides of brushed motors, especially high-power ones used in combat robots, is that they are very **electrically noisy**. Electrical noise sent down the motor leads can affect nearby electronics or induce false signals in nearby signal wires, causing motors to spin when they shouldn't. This often manifests in your weapon spinning or your servos twitching when you attempt to drive, which is both dangerous and suboptimal in a fight.
+
+Fortunately, there are a few ways to mitigate brushed motor noise – choose the one that best suits your robot.
+
+## Moving Drive Motors Away from Other Electronics
+
+This is the most straightforward method. By moving your drive motors and their power leads away from your receiver and weapon ESC, you can minimize the effect of noise on these more sensitive electronics. However, this can be difficult especially in more compact robots.
+
+## Twisting Motor Leads and Signal Wires
+
+Twisting the leads on your brushed motors can help reduce generated electrical noise, while twisting your signal leads can make them less vulnerable to noise. This has only a small effect but can sometimes be enough to mitigate issues. Most drone ESCs will come with their signal wires already twisted.
+
+![Twisted motor leads](/img/wiki/appendices/noise-twist-1.png)
+
+![Twisted signal wires](/img/wiki/appendices/noise-twist-2.png)
+
+## Adding Capacitors to Motors
+
+![Capacitors on a motor](/img/wiki/appendices/noise-capacitor.png)
+
+This is the most common method of dealing with noise. Adding capacitors to your brushed motors greatly reduces the amount of noise they generate, which is most often enough to solve noise issues.
+
+For beetleweight-sized drive motors, small **0.1μF ceramic capacitors** are a great choice and can be purchased for very cheap off Amazon. Other types can work, but make sure they **aren't polarized** since a brushed motor will see voltage in both directions.
+
+There are three levels of noise suppression:
+
+1. **Moderate suppression:** Solder one capacitor between the leads of the motor.
+
+![One capacitor between motor leads](/img/wiki/appendices/noise-cap-1-1.png)
+
+![One capacitor between motor leads](/img/wiki/appendices/noise-cap-1-2.jpg)
+
+2. **Greater suppression:** Solder two capacitors to the motor, one from each lead to the motor casing.
+
+![Two capacitors from leads to casing](/img/wiki/appendices/noise-cap-2-1.png)
+
+![Two capacitors from leads to casing](/img/wiki/appendices/noise-cap-2-2.jpg)
+
+3. **Strongest suppression:** Combine both methods and solder all 3 capacitors to your motor.
+
+## Adding a Capacitor to Weapon Signal Wires
+
+This is the most effective method of mitigating electrical noise, but also comes with the most negative downsides, so it should be treated as a **last-ditch effort** when other methods have failed.
+
+Soldering a small capacitor (0.1μF ceramic capacitors are also a great choice here) between the **signal and ground pads** on your weapon ESC or any other affected ESC or servo will allow it to absorb any voltage spikes induced by noise, eliminating false signals read by the ESC.
+
+![Capacitor on signal wire](/img/wiki/appendices/noise-signal-cap.jpg)
+
+:::warning
+This comes with several downsides:
+1. The capacitor will completely absorb the **serial signals used to program the ESC**, making it unprogrammable unless the capacitor is removed.
+2. It can slightly distort the real signals sent from the receiver, causing the values read by the ESC to be slightly off. This can cause issues centering or reaching maximum throttle values, although this can be adjusted for using endpoint or ESC servo settings.
+:::

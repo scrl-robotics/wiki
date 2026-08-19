@@ -1,0 +1,126 @@
+---
+sidebar_position: 3
+slug: /drive-systems/weapon-design
+---
+
+# Spinning Weapon Design
+
+While it may seem quite simple at first to create a pointy spinning object, designing an effective spinning weapon can be surprisingly tricky for beginners. There are many considerations in the design of an effective weapon that are quite nuanced and can greatly affect the amount of damage inflicted as well as the chances of winning a head-on collision. Some of the most important concepts are discussed below.
+
+## Material Choice
+
+There is a pretty limited selection of materials that can hold up to the abuse of being a combat robot weapon. Choosing an appropriate material is crucial as using the wrong material will lead to your weapon bending or breaking very quickly.
+
+### Hardened Steel
+Is, in general, the best choice for weapons due to its very high strength and hardness. There are many different types of hardened steels with different properties, but the best ones for weapons have good toughness to avoid shattering, and enough hardness to avoid deforming. Pre-hardened **AR500 and AR600** wear plate is the best choice for 2D weapons, while **4140 or 4340** alloy steel and **S7 or H13** tool steel, machined and then hardened, are the best choice for 3D weapons.
+
+### Grade 5 Titanium
+Is much less common due to its high cost, but can still work well as a weapon. It's half the density of steel allowing for funny large weapons, but is softer which means it will bend, deform, and wear down faster. Generally, it is recommended to use hardened steel, but if you have a particular reason to use titanium it can be a good choice.
+
+### High Strength Aluminum
+Such as alloys 6061, 2024, or 7075 can work well as the body of a weapon onto which hardened steel impactors are attached. This type of multi-part weapon design is common on 3D weapons since it's cheaper than a solid hardened steel piece, however it is less durable as the teeth can break off on large impacts.
+
+## Weapon Geometry and Bite
+
+Good geometry is absolutely crucial to the effectiveness of a weapon. There are about a million ways to make a spinning object with sharp teeth, but designs for spinning weapons have seen a lot of convergent evolution over the past few years as they have become more and more optimized. This section will focus on design for 2D weapons, but many of the same principles will apply to 3D weapons as well.
+
+To begin, let's discuss the two fundamental types of weapon designs – **bars** and **disks**. Most weapon designs are variations of these two general shapes.
+
+![Bar and disk designs](/img/wiki/weapon-design/bar-vs-disk.png)
+
+### Bars vs Disks
+
+The main functional difference between bars and disks is that **bars** minimize the amount of material around the weapon's outer diameter, while **disks** maximize this amount.
+
+Since they have more mass around the outside of the spinning diameter, disks have a greater **moment of inertia (MOI)** and thus store significantly more energy for a given diameter and weight. However, this additional energy results in greater gyroscopic precession on vertical spinners, and greater torque-reaction steering when spinning up on horizontal spinners.
+
+![Weapon design](/img/wiki/weapon-design/design-1.png)
+
+![Weapon design](/img/wiki/weapon-design/design-2.png)
+
+Disks have two additional downsides:
+- They have more material near the outer diameter, making them vulnerable to off-plane hits.
+- They have less maximum tooth engagement than a bar, which can reduce bite.
+
+On small weapons, the difference between disk and bar designs is minimized so both are used, but on large weapons **bars are generally more common in beetleweights**.
+
+## What is Bite?
+
+Simply put, **bite is the amount of area that your weapon's tooth engages with the opponent**. Think of it as how hard your weapon "grabs" the opponent on a hit. Bite is the main factor affecting the amount of energy transferred from your weapon to the opponent, which in turn is the main factor in how big the hit will be.
+
+You can store as much energy as you want by spinning a heavy weapon really fast, but this doesn't mean anything if you can't transfer that energy into the opponent. Bite is a factor of the weapon design, as well as several other important factors. When you get poor bite, your weapon tends to grind against the opponent or get small pops rather than getting those big violent hits that you're looking for.
+
+## Maximizing Bite
+
+There are a few ways to maximize bite, and they all share one fundamental goal – to allow the opponent to move as close to the center of your spinning weapon as possible before the tooth makes contact with them, in order to maximize contact area of the tooth and increase energy transfer.
+
+![Bite diagram](/img/wiki/weapon-design/bite-diagram.png)
+
+### Increase Engagement Speed
+Increasing engagement speed is the most simple way to increase bite, and does not involve weapon geometry at all. By driving into your opponent faster, your opponent moves towards your weapon faster – allowing them to get closer to the center of the weapon before your tooth comes around to hit them. This is why many drivers will employ the strategy of backing up, and then charging into the opponent quickly.
+
+### Reduce Weapon RPM
+Reducing weapon RPM is another common way to increase bite. By spinning slower, the weapon's tooth comes around less frequently, allowing the opponent to move closer to the center of the weapon on hits. Reducing the weapon's RPM also reduces its stored energy, so a balance must be struck. A common target for maximum RPM is one that results in a tip speed/angular velocity of around **250-300mph**, but many people will run at reduced throttle (~150-200mph) for most of the match to preserve battery life and maximize bite. Tip speed can be easily calculated using the [BBB Tip Speed Calculator](https://buildersdb.com/tipspeed).
+
+### Reduce the Number of Weapon Teeth
+Reducing the number of weapon teeth is an important part of weapon design. For a given RPM (and thus a given amount of stored energy), a weapon with fewer teeth will have a tooth come around less frequently, allowing the opponent to move closer to the center of the weapon before a tooth makes contact. This is why the majority of weapons on competitive robots only have **one tooth**. Single-tooth weapons can be balanced using the center of mass tool in your CAD software of choice.
+
+Other means of increasing energy transfer include using higher rake angle (discussed below) and a thinner weapon to allow it to dig into opponents' armor more. However, these come at the cost of reduced durability. Effective ground game that feeds the opponent into your weapon at a good angle also increases the bite you are able to get.
+
+## Designing for Durability
+
+The weapon is the part of the robot that experiences the greatest amount of forces, and thus it is crucial that it is designed to be able to handle these forces without deforming or breaking. Below are a few guidelines that will help you design a weapon that is durable enough.
+
+### Minimum Material Thickness
+Minimum material thickness is usually considered to be **3/16"**, assuming a 2D AR500 weapon. Blades thinner than this will bend very easily and are not recommended.
+
+- 3/16" blades will still bend from particularly hard off-plane hits, but will survive fine for the most part on larger-diameter bar weapons which are less likely to get hit off-plane. Many horizontal spinners will run this thickness.
+- For a more durable option, **1/4" or 6mm** is recommended. This is a very common thickness for vertical spinners, and a great "chunky" option for horizontal spinners.
+- **3/8" or 1/2"** are common for chunkier vertical spinners and are very unlikely to bend.
+
+### Proper Tooth Support
+Important to prevent the tooth from "rolling" backwards on hits and wearing down quickly. This usually involves adding as much material as possible to the area immediately behind the tooth. Many weapons have a sort of "swept" profile behind the tooth that backs the impacting surface and stops it from deforming quickly.
+
+![Tooth support](/img/wiki/weapon-design/tooth-support-1.png)
+
+![Tooth support design](/img/wiki/weapon-design/tooth-support-2.jpg)
+
+### Sufficient Tooth Width
+Important to prevent the tooth from bending up or down from off-plane hits, or backwards from its own hits. Perhaps counter-intuitively, the part of the tooth that experiences the greatest bending force is not its impacting point, but rather its base, where it connects to the main body of the weapon. This is due to higher leverage. You'll see that the tooth on many weapons is very wide near the base in order to provide sufficient strength against bending, and tapers to a point near the tip to reduce weight and provide a sharp point for impacting.
+
+![Tooth width](/img/wiki/weapon-design/tooth-width.png)
+
+### Choosing a Reasonable Rake Angle
+Rake angle is a factor to weapon durability that is often overlooked by beginners. Rake angle refers to the angle between two hypothetical lines - one that runs from the center of your weapon to the very tip of the tooth, and one that runs parallel to the tooth's impacting face. Rake angle can be either positive or negative.
+
+![Rake angle](/img/wiki/weapon-design/rake-angle.png)
+
+- **Greater positive rake** increases your weapon's ability to dig into an opponent's armor, but it inherently reduces tooth support making the tooth wear down more quickly.
+- Weapons with **negative rake** struggle to bite into the opponent, and are thus rarely used despite greater durability.
+
+Generally, weapons with a neutral rake or **positive rake of less than 15 degrees** are preferred as they provide a good balance of piercing ability and durability. High positive rake angles in excess of 20 degrees can be situationally useful where the weapon is unlikely to hit hard armor or another weapon, such as in hammer-saw blades or specialized anti-TPU weapons, but they tend to wear very quickly.
+
+## Examples of Good Weapon Designs
+
+Common good weapon designs include:
+
+![Asymmetric bar](/img/wiki/weapon-design/example-asymmetric-bar.png)
+
+![Key blade](/img/wiki/weapon-design/example-key-blade.png)
+
+- **Asymmetric Bar** with one tooth and a counterweight
+- **"Key" Blade**
+
+![Small blade](/img/wiki/weapon-design/example-small-blade.png)
+
+![Large-tooth disk](/img/wiki/weapon-design/example-large-tooth-disk.png)
+
+- **Small Blade**
+- **Large-Tooth Disk**
+
+In general, a good weapon is **asymmetric with one tooth**, and maximizes the distance between the outer diameters of the tooth and counterweight. This maximizes bite and reduces the chances of the counterweight getting hit.
+
+- Sometimes, two-toothed designs are seen on weapons with very large diameters, as their lower RPM allows them to get sufficient bite even with 2 teeth.
+- The tooth on a good weapon is wide to maximize durability, and has generous fillets at its base to reduce stress risers.
+
+Some robots will also run different weapons to counter different opponents. For example, a large-diameter vertical spinner may run a disk against an eggbeater to maximize damage inflicted on head-on collisions, but run a bar against a horizontal spinner to reduce the chance of off-plane hits. A horizontal spinner may run a very sharp, pointy blade against defensive opponents with soft plastic armor, but a chunker blade against a vertical spinner. As with most things in combat robotics, weapon design involves tradeoffs that are best balanced through experimentation.

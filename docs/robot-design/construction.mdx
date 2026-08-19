@@ -1,0 +1,75 @@
+---
+sidebar_position: 4
+slug: /robot-design/construction
+---
+
+# Construction Methods & Fastening
+
+There are about a million ways to put together a beetleweight, and as such there's no way anyone could provide a comprehensive list of construction techniques. This section is aimed at providing a decent starting point for beginners, and will thus go over only the simplest, easiest, and most common construction methods.
+
+## Uprights
+
+One of the most common elements of combat robots, especially for vertical spinners, lifters, and overhead attackers that require mounting some sort of vertically rotating element, is to have a **pair of uprights** (commonly either UHMW, or TPU stiffened with other materials) spanning the distance between the top and bottom plates and functioning as the main structural components of the chassis, while serving as mounting points for the vertically rotating element, its motor, and sometimes the drive system. Armor and other components such as motor mounts and electronics dividers are also mounted between the top and bottom plates, which provide a rigidity to the assembly.
+
+An excellent example of this type of construction is the **Peter Bar kit robot from Repeat Robotics**. Check out the publicly available 3D assembly instructions for this kit as it provides a great look into how these robots go together.
+
+![Upright-construction robot](/img/wiki/construction/upright-robot.png)
+
+**Common specs:**
+- Thickness of top and bottom panels is usually **1.5-2mm**.
+- For vertical spinners, UHMW uprights of ⅜" or ½" thick are commonly used - thicker TPU with stiffeners is also common.
+- For wider weapons, they can double as the drive mounts but separate drive-mounting uprights can be used for robots with narrower weapons.
+- Side armor and back armor are also mounted between the top and bottom plates, and are most commonly made of TPU. Front armor mounting can vary a lot, do whatever works best for your design.
+
+### Fastening
+
+Robots of this construction type often make heavy use of **"Plastite" screws** to hold the top and bottom plates to the rest of the components. They have large threads that dig into an undersized hole without the need for tapping, similar to wood screws but designed specifically for use in soft plastics. "Plastite" is a brand name, you can find generic self tapping/thread rolling plastic screws too. Plastites are great because they are super easy to use as the only thing they need is an undersized hole. They are also lightweight and provide a relatively strong hold, so they are often the first choice for fastening things to plastic parts.
+
+![Plastite screw](/img/wiki/construction/plastite-screw-1.png)
+
+![Plastite screw](/img/wiki/construction/plastite-screw-2.png)
+
+For fastening thinner metal or composite plates for things like motor mounts, **nut strips** are often used. Nut strips are aluminum bars with alternating tapped holes that can be used to fasten metals and composites, or material too thin for plastite screws, at 90 degree angles. They are sold primarily by **Fingertech Robotics** but can be found at a few other robotics suppliers as well.
+
+![Nut strip](/img/wiki/construction/nut-strip-1.png)
+
+![Nut strip](/img/wiki/construction/nut-strip-2.png)
+
+## TPU Sandwich
+
+Another common method of constructing beetleweight robots is to **sandwich a TPU chassis between a rigid top and bottom panel**. This method aims to reduce manufacturing costs and increase simplicity as the entire inner chassis can be 3D printed, and thus can include complex geometry that integrates various components such as motor mounts, electronics dividers, and armor.
+
+![TPU sandwich construction](/img/wiki/construction/tpu-sandwich.jpg)
+
+This construction method is particularly popular with midcutter horizontal spinners as the rigid top and bottom panels can extend to mount the weapon, but can be applied to many other designs as well. For example, stiffened uprights can be integrated into the TPU chassis to mount a vertical spinner, lifter, or hammer mechanism.
+
+![TPU sandwich chassis](/img/wiki/construction/tpu-sandwich-chassis.png)
+
+Most often, **aluminum hex standoffs** are inserted into the TPU chassis to mount the top and bottom plate. These provide a greater strength and rigidity than Plastite screws, and are relatively lightweight. Plastites can still be used in areas where rigidity is not required. It is not recommended to use heat-set inserts, as they can pull out of TPU very easily due to the material's flexibility. For maximum strength, a through-bolt and locknut can be used, but is more difficult to disassemble.
+
+![TPU sandwich standoffs](/img/wiki/construction/tpu-sandwich-standoff.png)
+
+## Unibody
+
+For maximum simplicity and durability, a **unibody chassis** may be a good option. A unibody refers to a chassis that is made in one single piece with all mounting and armor integrated. A separate top plate is used to be able to access the electronics.
+
+3D printed TPU unibody chassis are popular among defensive control bots, as well as smaller vertical spinners. They are inexpensive to manufacture, lightweight, and very durable. Many of the most competitive robots are built like this.
+
+![Unibody chassis](/img/wiki/construction/unibody-1.png)
+
+![Unibody chassis](/img/wiki/construction/unibody-2.png)
+
+**Downsides:**
+- The main downside of a TPU unibody chassis is the lack of repairability. If the chassis becomes too damaged, you have to transplant all the robot's guts to a new chassis which can take a lot of time and effort.
+- A good tip is that TPU parts can be repaired by melting in new material, with a soldering iron or 3D printing pen.
+- Another downside is that a TPU unibody does not offer a lot of rigidity, which can be problematic for mechanisms that require rigidity such as belt or gear systems.
+
+TPU is not the only viable material for a unibody chassis - **PLA+, UHMW, and aluminum** have all been used with success. However, unibodies made from non-3D-printable materials are very uncommon due to their very high cost. Despite this, they are sometimes used due to their greater strength and rigidity. The **SSP kit from Just Cuz Robotics** is a great example of a UHMW unibody.
+
+![UHMW unibody](/img/wiki/construction/unibody-3.png)
+
+![UHMW unibody](/img/wiki/construction/unibody-4.png)
+
+## Hybrid Construction
+
+You don't have to choose just one construction method! Many builders will mix different ones to best satisfy their needs. For example, a robot may utilize a TPU sandwich for its drive pods and UHMW uprights for its weapon. Feel free to play around with different building techniques to find one that works best for you!

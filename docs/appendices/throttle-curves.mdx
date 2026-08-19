@@ -1,0 +1,45 @@
+---
+sidebar_position: 6
+slug: /appendices/throttle-curves
+---
+
+# Appendix VI: Throttle Curves & Expo
+
+One of the biggest challenges beginners face has nothing to do with building the robot itself – **driving**. Combat robots are quite fast and zippy which can make them difficult to control for the inexperienced. Driving plays a role in success as big as if not bigger than the actual robot's design, so if you want to win you have to drive well.
+
+While driving skill certainly comes mostly from experience, there are some things you can do to make it a little bit easier your first time around. One of these things is **tuning throttle curves** on your transmitter.
+
+The output signal that your receiver sends to the ESC is a function of the input on the transmitter's sticks. By default, it's a simple **linear function** where the output perfectly mirrors the input. However, this function can be modified in a few ways that can make driving easier.
+
+## Throttle Limiting
+
+If you feel like your robot drives or turns too quickly in general, or if you're running a drive system with excessive speed such as some tangent or gear-drive setups, **throttle limiting** might be a good choice.
+
+By setting input weight to a value below 100, a multiplier is applied to your drive inputs, which effectively **reduces the maximum speed of your drive motors** at all input levels.
+
+Generally, throttle limiting affects the inputs before mixing. Thus:
+- Reducing the weight of **Channel 1** will limit your forwards and backwards speed
+- Reducing the weight of **Channel 2** will limit your turning speed
+
+Most builders will opt to limit turning speed to be able to point the robot more accurately.
+
+**On the FS-i6:** Throttle limiting can be adjusted in the **Functions Setup → Dual Rate/Exp** menu and adjusting the "Rate" value.
+
+**On EdgeTX radios** (Pocket/Zorro): Throttle limiting can be adjusted by changing the weight values of channels on the **"Inputs"** menu.
+
+## Expo Curves
+
+Enabling **expo curves** makes the output function an exponential curve instead of linear. This allows you to fine-tune the sensitivity of the throttle throughout the input range.
+
+For example:
+- This can allow greater control at low throttle but greater speed at high throttle.
+- Another application would be increasing power at low throttle, to help lower-torque drive systems get going.
+
+- **Positive exponential curves** will increase low-speed sensitivity
+- **Negative exponential curves** will decrease low-speed sensitivity
+
+It's a good idea to play with your expo curves to figure out what feels best to drive with.
+
+**On the FS-i6:** Expo curves can be adjusted in the **Functions Setup → Dual Rate/Exp** menu and adjusting the "Exp" value.
+
+**On EdgeTX radios** (Pocket/Zorro): You can add an expo curve by entering the menu for the input to be adjusted and modifying the "Expo" value.

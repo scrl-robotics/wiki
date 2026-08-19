@@ -1,0 +1,77 @@
+---
+sidebar_position: 2
+slug: /drive-systems/wheels-and-hubs
+---
+
+# Wheels & Hubs
+
+Combat robot wheels need to satisfy a combination of **high durability**, **high traction**, and **low weight**. A number of different styles of wheels are commonly used, each with their own strengths and weaknesses.
+
+## Off-the-Shelf Wheels
+
+A quick search on various robotics parts supply websites will yield many different types of off-the-shelf wheels meant for driving various types of robots and vehicles. These are often quite cheap and easy to use, making them an attractive choice for beginners.
+
+Unfortunately, there are very few off-the-shelf options that are ideal for beetleweight robots, as these wheels are not optimized for combat robotics – they are heavy and fragile compared to the custom options discussed below.
+
+![Off-the-shelf wheel](/img/wiki/wheels/off-the-shelf-wheel-1.png)
+
+![Off-the-shelf wheel](/img/wiki/wheels/off-the-shelf-wheel-2.png)
+
+One of the few viable off-the-shelf wheel options is the **Banebots Compliant Wheel**, which can be purchased in 2", 3" or 4" diameter and in various hardnesses. Other wheel offerings from Banebots were common in the past but are rarely used nowadays. Banebots sells hubs that can be used to attach these wheels directly to a motor shaft.
+
+:::warning
+If you choose to use an off-the-shelf wheel, make sure to choose one that attaches to the shaft with a secure method such as a set screw or clamp, rather than one that simply presses onto the shaft as press-fit wheels will fall off very quickly in combat. Additionally, because off-the-shelf wheels are often not very durable, incorporating wheel armor into your design is advisable.
+:::
+
+## Foam Wheels
+
+Foam wheels were extremely popular a few years ago, and were the default choice before the rise of custom-cast polyurethane wheels. Inspired by the foam wheels commonly seen on landing gear of RC airplanes, combat robot foam wheels consist of a disk of high-density foam (usually **neoprene** or **EVA**) attached to a shaft with some sort of hub.
+
+- **Pros:** Extremely lightweight, and have excellent shock absorption making them good at protecting your drive motor. Easy to use and replace, as foam tires can simply be removed from the hub and swapped for a new one if they become too damaged.
+- **Cons:** While they are great at absorbing shock, they are not very durable and tend to get shredded very quickly if hit. Additionally, they have poor traction compared to other options, but this can be rectified by coating the wheel with a layer of contact cement and then a few layers of liquid latex, a common technique among builders who use foam wheels today.
+
+![Foam wheel](/img/wiki/wheels/foam-wheel-1.png)
+
+![Foam wheel](/img/wiki/wheels/foam-wheel-2.png)
+
+**Suppliers:** Fingertech Robotics sells neoprene foam wheels in many sizes. You can also cut your own wheels from sheets of foam with a hole saw. Fingertech and Repeat Robotics sell hubs for foam wheels – the Repeat ones are cheaper and have additional holes for attaching gears or pulleys. It is also possible to 3D-print hubs for foam wheels, but no particular designs have caught on yet.
+
+## LEGO Tires
+
+LEGO tires with a **3D-printed hub** are a great option for those seeking a more customizable solution but don't want to get into custom-casting polyurethane tires. LEGO tires have great traction and durability, and can be purchased off **Bricklink** for very cheap. Most commonly, they are glued onto a 3D-printed TPU hub with CA glue or epoxy.
+
+LEGO tires that are either solid (called **"Solid"** tires on Bricklink), or thin and low-profile (called **"ZR"** tires on Bricklink) are generally preferred for this use case, as thicker hollow tires are less durable and more difficult to glue to the hub. The wheels with LEGO part number **55978, 44309, 41897, 58090, 30699, and 5033** are good options, but there are many others that can work. Even non-lego tires such as Chinese knockoffs or RC car tires can work, given they are the right shape and size.
+
+Because the hub is 3D-printed, you have a lot of freedom with their shape. You can design them to accommodate a hub to mount to a drive motor shaft (the **Repeat Robotics Screw Hub** is a very popular choice), or a bushing to mount to a dead axle. Additionally, you can integrate a gear or pulley onto the hub making it easier to build indirect drive systems.
+
+![LEGO tire wheel](/img/wiki/wheels/lego-tire-1.png)
+
+![LEGO tire wheel](/img/wiki/wheels/lego-tire-2.png)
+
+LEGO tires are especially popular among builders who utilize **tangent drive** systems, as they have greater hardness and abrasion resistance than polyurethane tires making them less likely to get shredded by the tangent shaft and lose contact. However, their higher hardness gives them less traction than polyurethane tires.
+
+## Custom-Cast Polyurethane Wheels
+
+The most popular style of wheel in beetleweights today is the **custom-cast polyurethane wheel**. They are similar in construction to LEGO wheels, but instead of gluing a LEGO tire onto the printed hub, a polyurethane resin is cast around it to form a tire. These types of wheels have incredible traction and durability. Additionally, various features can be integrated into the printed hub, and the wheel itself can be made in almost any size and shape imaginable!
+
+![Custom-cast polyurethane wheel](/img/wiki/wheels/cast-pu-wheel.jpg)
+
+The most popular choice of polyurethane resin is a product called **Vytaflex** from **Smooth-On**. It comes in various hardnesses between 20-60 Shore A, with lower hardnesses providing greater traction but lower durability. Most robots run hardnesses between 30-50, but higher hardnesses can be useful for particularly large wheels or robots running magnetic downforce.
+
+![Custom-cast polyurethane wheel](/img/wiki/wheels/cast-pu-wheel-2.png)
+
+The casting process is generally quite simple – a mold is 3D-printed and usually includes a feature to properly center the hub. The hub is then inserted, and the resin is poured around the hub to form the tire. More details on the casting process and hub design can be found in [Appendix I](/appendices/casting-wheels). While it may seem intimidating at first, it's easier than it looks and beginners are encouraged to give it a shot! The amount of customizability and performance is unmatched by other options.
+
+## Cleats
+
+Cleats are a very unique and interesting wheel type – instead of relying on a material with high friction to transfer torque to the ground, they utilize a **thin metal disk with protruding spikes** that attempt to dig into a wood floor to provide traction. When designed and utilized properly, cleats can provide more traction than any other wheel type. However, designing effective cleats is challenging and results can vary depending on the type of wood and paint used for the floor.
+
+![Cleat wheel](/img/wiki/wheels/cleat-1.png)
+
+Cleats are most commonly laser-cut from **titanium or steel** 1-2mm thick, with a number of protruding spikes. More spikes provides a smoother ride, while less spikes provides greater traction. Because of their thinness, cleats are lightweight and can allow for a very compact drive system, but they are fragile. As such, they are often attached to the backside of a regular wheel, which stops the spikes from digging in too far and can continue to provide traction if the cleat is damaged.
+
+![Cleat wheel](/img/wiki/wheels/cleat-2.png)
+
+:::note
+Successful cleats require a bit of experimentation and can depend on what type of floor the event you attend uses. Generally, wood of medium hardness is best for cleats – they will struggle to dig into wood that's too hard, and will "saw" themselves into wood that's too soft. Cleats will flat-out not work at all on steel floors.
+:::

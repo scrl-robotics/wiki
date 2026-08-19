@@ -1,0 +1,129 @@
+---
+sidebar_position: 2
+slug: /manufacturing/3d-printing
+---
+
+# 3D Printing
+
+3D printing is a technology that has truly revolutionized manufacturing in recent years, and it has played a major role in the evolution of combat robots as well, especially beetleweights. Almost any component on the average beetle can be 3D-printed for a very low price, making it easier than ever to get into the sport.
+
+This section isn't meant to be a comprehensive guide on 3D printing in general – it would take far too long and besides there are many resources online that do a much better job of explaining the technology. As such, this section will focus on specific 3D-printing considerations that are important in a combat robotics context.
+
+## Perimeters and Infill
+
+A common question asked by beginners when 3D printing armor and other components that require durability is whether to increase the number of **perimeters** or **infill density**. Generally, a good rule of thumb is that more perimeters increases **strength**, while more infill increases **rigidity**. As such, for armor pieces that require high strength to resist damage as well as flexibility to absorb impacts, most builders opt to **maximize perimeters and minimize infill**.
+
+![Perimeters and infill](/img/wiki/3d-printing/perimeter-infill-1.png)
+
+![Perimeters and infill](/img/wiki/3d-printing/perimeter-infill-2.png)
+
+Lightweight sacrificial armor can function with as little as **3 perimeters** given sufficient thickness, while armor with as many as **8-12 perimeters** has been used with success. In terms of infill, **5-10%** is a good starting point, with **gyroid** and **cubic** being the preferred infill types. However, the print settings you choose should depend heavily on your specific application and weight constraints.
+
+## Airgap Armor
+
+There's a common saying among builders that **air is the best armor**. In other words, spacing your crucial internal components as far away as possible from the opponent's weapon is the best way to protect them.
+
+![Airgap armor](/img/wiki/3d-printing/airgap-armor-1.png)
+
+3D printing technology allows for the production of large, mostly hollow, lightweight parts with the use of a low infill %. Such parts are very effective as armor due to their ability to keep the opponent's weapon away from critical components whilst also being very lightweight. In general, from a pure effectiveness perspective, **thick hollow armor is more effective than thin, dense armor**.
+
+The downside of this type of hollow "air armor" is that it accumulates damage very quickly and must be replaced very often – though this isn't usually a problem due to the low cost of 3D printed parts.
+
+![Airgap armor](/img/wiki/3d-printing/airgap-armor-2.png)
+
+## Printing TPU
+
+Flexible materials have historically been considered to be difficult to print. However, modern TPU filaments are more optimized for easy printing, and modern printers are much better at dealing with flexibles. In general, TPU is not a difficult material to print nowadays, but there are still several important considerations when working with this material that help improve the quality and strength of your parts.
+
+### Dry Your Filament
+Drying your filament is crucial when printing with TPU. It is a **hygroscopic** material and will absorb water from the air when stored in the open, causing it to steam as it melts out of the printer's nozzle.
+
+- This causes bubbles in your resulting print reducing strength, in addition to causing stringing and blobs which worsen the part's appearance and causes issues with clearances.
+- Wet filament produces a noticeable sizzling noise as it extrudes, and parts printed in wet TPU will have a "spongy" finish.
+
+In opinion, a **filament dryer is mandatory** for combat robotics, as most of the filaments used require drying. Avoid the cheap ones that can only reach 55 degrees, as these can take over 24 hours to dry TPU and have little effect on nylon due to low temperatures and lack of air flow. Higher quality filament dryers that are capable of hitting 70 degrees and have circulation fans/venting, as well as food dehydrators, are great options. For TPU, **12 hours at 60 degrees** is usually sufficient.
+
+### Hotter + More Material
+Increasing **print temperature and extrusion multiplier** ensures that the printed layers stick together more strongly, increasing the durability of the part. Most TPU filaments advertise a recommended printing temperature of around 220-240 degrees, but often they can be printed as hot as **260 degrees** to maximize layer adhesion and durability at the cost of slightly reduced print quality and some stringing. Reducing print fan speed and using an enclosure can also help, though be careful with an enclosure as excessively high ambient temperatures can lead to heat-creep and clogging.
+
+Because of its flexible nature, TPU has a tendency to **underextrude**, especially with Bowden extruders. Because not enough material is being extruded, layers tend to not stick together causing them to delaminate on hits. As such, it is recommended to increase extrusion multiplier when working with TPU if your printer doesn't have automatic flow rate calibration. **105% extrusion for direct drive and 115% for Bowden** are good starting points in experience.
+
+![Printing TPU](/img/wiki/3d-printing/tpu-print.jpg)
+
+![TPU print settings](/img/wiki/3d-printing/tpu-print-2.png)
+
+### Overhangs & Supports
+Reducing overhangs and bridges is especially important with TPU as the material has a high tendency to droop, especially when printing at temperatures above the manufacturer's recommendation. Additionally, support material in TPU is very difficult to remove cleanly. If you require support material for your design, use **Tree supports** and clip them off individually with flush cutters afterward.
+
+### Retraction
+Retraction is an interesting topic when it comes to TPU. Some people claim that retraction should be disabled as it will cause tangling and clogging, while others say it should be increased to reduce stringing. Retraction should generally be **increased**, as most modern extruders are capable of performing aggressive retractions with TPU without tangling. However, older and lower quality printers such as Ender 3's have poor quality extruders that tangle easily, so avoid retractions on these printers.
+
+### Print Surface
+Using an appropriate print surface is crucial with TPU as it bonds too well to many common print surfaces such as smooth PEI and glass, causing it to become stuck permanently. Make sure to use either **textured PEI** and/or use glue stick as a separation layer to prevent excessive bed adhesion.
+
+## Printing Nylon
+
+Nylon is one of the more challenging materials to print due to its very high water absorption, high printing temperatures, and tendency to warp heavily. However, there are some easy DIY methods that can be used to make printing nylon much easier.
+
+### Nylon Types
+
+**PA6 and PA12** are the two most common variations of nylon resin used in 3D printing filaments.
+
+- **PA6** is more common and cheaper, and is generally stronger.
+- **PA12** has greater temperature resistance. More importantly, it absorbs much less water, making it easier to print and allowing it to maintain its rigidity for long-term use (PA6 tends to absorb water and become more flexible over time).
+
+In general, **PA6 is more useful in combat robotics** and PA12 is not worth the extra price.
+
+**Carbon-fiber and glass-fiber reinforcement** is often added to nylon filaments to increase their stiffness and reduce warping. While they are more brittle and have weaker layer adhesion, they are more rigid and easier to print as the fibers prevent warping. Carbon-fiber reinforced nylon is stiffer and lighter than glass-fiber reinforced nylon, but is more brittle and more expensive. Glass-fiber nylon is preferred due to its increased toughness and lower cost.
+
+:::warning
+If using fiber-reinforced filaments, make sure to use a **hardened nozzle** as these filaments are highly abrasive and will quickly wear down a standard brass nozzle.
+:::
+
+### Drying
+Drying your filament is even more important with nylon than TPU, especially when using PA6. PA6 is one of the most hygroscopic plastics and will yield extremely weak and low-quality parts if printed wet. A high-quality filament dryer or food dehydrator is mandatory – dry at **at least 70 degrees for 12-24 hours**. Also, make sure to print directly out of the filament dryer or a sealed drybox – PA6 can absorb enough water to affect print quality in as little as a few hours. If using PA12, drying is less crucial and parts printed with undried filament will suffer in quality but generally maintain sufficient structural integrity.
+
+### Bed Adhesion
+Using an appropriate bed adhesive is crucial for successful nylon prints. Nylon has very poor adhesion to most build plate materials including PEI – and in addition to its tendency to warp, parts will very easily warp off the bed and break loose if adhesive is not used. A plain **PVA glue stick** is enough to provide excellent adhesion for nylon.
+
+### Enclosure & Warping
+Using an enclosure is very important when working with nylon, especially if it does not have carbon or glass fiber reinforcement. Without a heated enclosure, nylon tends to warp quite badly. A dedicated heated enclosure capable of hitting **60 degrees** is best, but in a pinch something as simple as a cardboard box or plant grow tent can prevent warping in parts that aren't particularly large. Carbon or glass fiber reinforced nylons do not strictly require an enclosure, but can still generally benefit from one.
+
+### Shrinkage
+Calculating **shrinkage factor** is an important but seldom discussed step when working with shrinky materials like unfilled nylon. Because the material shrinks as it cools, parts tend to end up a bit smaller than they should be in the XY dimension.
+
+Most slicer programs allow you to increase the size of your part by a certain percentage in each dimension which allows you to offset shrinkage. Generally, **1.5% is a good starting point** for unfilled, unmodified nylons. You can further tune the shrinkage factor by printing a long flat rectangle and measuring its length to calculate shrinkage. Generally, shrinkage is a non-issue for carbon or glass fiber reinforced nylons.
+
+### Post-Processing
+
+Nylon is an interesting material in that there are several ways to post-process parts printed in the material to change or improve their mechanical properties:
+
+#### Annealing
+Involves heating nylon parts to **80-100 degrees overnight** and allowing them to cool slowly. This relieves internal stresses in the part, and changes the chemical structure of the polymer to improve strength. Annealing has no significant drawbacks and should always be recommended for nylon prints if possible.
+
+#### Moisture Conditioning
+Involves reintroducing moisture to the nylon part. This can be accomplished by leaving the part in a humid environment for a few days or weeks – alternatively, this process can be completed faster and to a greater degree by **boiling the part for 10 minutes or so**. Parts can also be dyed using **Rit dye** during the boiling process.
+
+Moisture conditioning greatly increases the flexibility of nylon, making it much tougher and more impact resistant. It is a good idea in parts that may see impact forces such as weapon pulleys or external frame components.
+
+## Printing PLA+
+
+Printing PLA+ is quite easy compared to other materials, making it an attractive choice for older printers or complex geometry. For the most part, it can be printed using the same settings as regular PLA.
+
+To increase the strength of the part, it is recommended to **increase the print temperature to 240-260 degrees**, as well as reducing part cooling and slowing down print speed.
+
+## Other Materials
+
+### Materials to Avoid
+The vast majority of 3D printing filaments are unsuitable for combat robotics, mostly due to being too brittle. Here are some examples of filaments that may seem good, but are in reality suboptimal:
+
+- **PETG**: Many people will claim that PETG is more impact-resistant than PLA, but this is not the case. While PETG can be more flexible and tough than regular PLA, it has an undesirable brittle failure mode, and pales in comparison to higher-quality PLA+ blends.
+- **ABS and ASA**: These can offer similar toughness to PLA+ when printed correctly, but it is very challenging to achieve a satisfactory level of layer adhesion without a heated enclosure. Additionally, they produce toxic fumes during printing.
+- **Polycarbonate**: While polycarbonate can be useful in areas where high stiffness and heat resistance are required, it unfortunately shares the same undesired brittle failure mode as PETG. Additionally, it has very poor chemical resistance and is weakened by common chemicals such as Loctite and various greases.
+- **High-Temperature Engineering Filaments (PPS, PPA, PEI, etc.)**: These filaments, while very strong, also tend to be very brittle and are thus unsuitable for combat robots.
+
+### Newer Exotic Materials
+
+- **PEBA**: A springy and flexible filament popularized during the recent airless basketball trend. Compared to TPU, it is 20% lighter and more elastic, but weaker and more prone to tearing. It is useful for parts that do not take direct hits often such as wheels or flexible mounts, but not recommended for armor.
+- **Fiber-Filled TPU**: Carbon or glass-fiber filled TPUs have greatly increased rigidity while maintaining a decent level of toughness. They are difficult to find and expensive, but offer a unique blend of toughness and rigidity.
+- **PBT**: A tough and semi-rigid plastic most commonly known for its use in high-end keycaps. As far as is known it has not yet been used in beetleweights, but it could be a decent alternative to Nylon.

@@ -1,0 +1,171 @@
+---
+sidebar_position: 1
+slug: /testing-and-safety/testing-and-safety
+---
+
+# Testing & Safety
+
+While testing is in fact very useful, there are many safety concerns that must be addressed when testing, or when operating a combat robot in general. This section will go over important safety considerations when testing, working on, or otherwise operating a combat robot.
+
+## Test Boxes
+
+One of the most fundamental rules within the combat robotics community is to **never test your weapon outside of a test box**. But what is a test box, and how can you build one that is safe enough to test a beetleweight in? Beetles have gotten much more powerful in recent years and test boxes require a certain degree of structural integrity that most "household" containers or barriers would not satisfy.
+
+:::danger Disclaimer
+The test box construction methods and materials listed here are just ones commonly used by other builders and are **not 100% guaranteed to be completely safe**! You will not be held liable for any damage caused by test box failures – test at your own risk!
+:::
+
+### Construction
+
+Most test boxes nowadays are built mostly out of **plywood**, with a **polycarbonate window** to see inside. **0.75"** is the thickest plywood that most hardware stores will sell; it is quite cheap and more than enough to contain even a beetle. Make sure they are attached together securely via steel brackets, wooden blocks, etc.
+
+A door can be implemented in several ways – the easiest is simply clamping the roof of the box on with large clamps that can be removed. Sliding it in via grooves or using hinges and latches also works well.
+
+### Polycarbonate Windows
+
+The minimum thickness of polycarbonate to safely contain a beetleweight weapon is generally considered to be **3/16"**. This is sufficient if the window is on the roof of the box, and you are only performing light testing (i.e. not hitting around hard objects, or hitting the window directly).
+
+If you intend to push your test box a bit harder, **double-layered 3/16" or 1/4"** are safer (most arenas are built with double-layered 1/4"). Keep in mind that drilling holes in polycarbonate greatly reduces its strength so avoid drilling holes and use other methods of fastening such as slots or clamping.
+
+When sourcing polycarbonate, your local commercial plastics supplier is the best choice. Polycarbonate can be obtained from Amazon or hardware stores but is expensive. Many plastics suppliers will sell offcuts or surplus stock at discounted prices so keep an eye out for deals.
+
+:::danger
+Ensure that you are getting **polycarbonate** (usually brand name Lexan or Makrolon) rather than **acrylic** (Plexiglass)! Plexiglass is far more likely to shatter on impact than polycarbonate making it unsuitable for test boxes.
+
+If you're unsure if you have acrylic or polycarbonate, there are a few DIY tests you can perform to attempt to identify the material. However, testing is not always reliable, especially since polycarbonate can deteriorate when exposed to the elements – the best thing to do is to purchase new polycarbonate from a reputable supplier.
+:::
+
+### Loading Procedures
+
+When loading into an arena or test box make sure to follow the proper steps:
+
+1. Transmitter on
+2. Place transmitter aside
+3. Load robot in
+4. Turn robot on
+5. Remove weapon lock
+6. Close the enclosure
+7. Pick up transmitter and proceed with testing
+
+When loading out of the box, make sure to follow the steps in **reverse order**.
+
+## Weapon Locks
+
+Most competitions require all robots with an active weapon to have a **locking mechanism** that physically stops the weapon from moving. Weapon locks must be:
+- Easy to use (ideally with one hand)
+- Easy to identify
+- Sturdy enough to not fall off accidentally or when the weapon tries to move
+
+### Locking Spinning Weapons
+
+Designing weapon locks for spinning weapons is quite easy, as they have low torque and are quite easy to stop from moving. There are three easy ways to lock a spinning weapon:
+
+1. **Clamping the weapon** with a C-clamp, spring clamp, locking pliers, or other type of holding tool is by far the easiest, but is not ideal as they can fall off accidentally if not tightened properly. This can be rectified by clamping the tool to itself through a hole in the weapon.
+
+![Weapon lock clamp](/img/wiki/testing-safety/weapon-lock-clamp-1.png)
+
+![Weapon lock clamp](/img/wiki/testing-safety/weapon-lock-clamp-2.png)
+
+2. **Inserting a pin through the chassis** that interferes with the weapon's path. This can be done with a simple metal rod, screwdriver, etc. but a **Ball Lock Pin** provides the most secure hold while being the easiest to use.
+
+![Weapon lock pin](/img/wiki/testing-safety/weapon-lock-pin-1.png)
+
+![Weapon lock pin](/img/wiki/testing-safety/weapon-lock-pin-2.png)
+
+3. **Inserting a 3D-printed block** custom-designed to fit snugly between the chassis and weapon, jamming it and preventing it from moving.
+
+![3D-printed weapon lock](/img/wiki/testing-safety/weapon-lock-printed-1.png)
+
+![3D-printed weapon lock](/img/wiki/testing-safety/weapon-lock-printed-2.png)
+
+### Locking Other Weapon Types
+
+Designing weapon locks for things like lifters is a bit trickier as they have more torque and unlike spinners, they must be stopped from moving entirely rather than simply being unable to make a full rotation. However, the easiest solution that works in all cases is to simply implement some **holes in the mechanism that a pin can slide through** to lock them together.
+
+There are countless other ways to implement a good weapon lock – as long as it stops the weapon from moving in a dangerous way and does not fall out easily it should be fine.
+
+### Sharp Bits
+
+Competitions will also often require sharp bits like forks and weapon teeth to be covered in the pits – the easiest way to do this is by buying a **foam mat** and cutting small cubes out of it that can be impaled on your sharp bits. For larger sharp things like saw blades, **3D-printed covers** are a good idea.
+
+## LiPo Battery Safety
+
+Lithium-Polymer batteries are very lightweight and power-dense making them ideal for combat robots, but they can also be very dangerous if stored or handled incorrectly. This section aims to address the safety issues with LiPos and how they can be mitigated.
+
+### Proper Charging
+
+LiPos should always be charged in a **LiPo-safe bag** (which can be purchased for ~$10 off Amazon) or another fireproof container such as a tin box or ammo can. Additionally, **never leave charging batteries unattended**.
+
+- The recommended charge current for LiPos is **1C**, which is simply their capacity. For example, 1C for an 850mAh battery is 850mA or 0.85A.
+- However, they can be safely charged at higher currents, in some cases up to 5C. Charging at 1-2C is recommended unless you're really in a pinch.
+
+Make sure you select the correct chemistry type for your battery. Pay special attention to the distinction between **LiPo and LiHV** – some chargers will offer both, while older cheap chargers may only support LiPo.
+
+- It is safe to charge LiHV batteries with LiPo settings, they just won't reach full capacity.
+- **Charging LiPo batteries with LiHV settings is very dangerous.**
+
+### Minimum Cell Voltage
+
+As a LiPo battery discharges, its voltage will drop slowly, and then rapidly once it reaches very low power. Discharging LiPo cells below a certain voltage will permanently damage them in addition to being a fire hazard, so be wary of your battery levels when testing.
+
+| Level | What to do |
+|-------|------------|
+| **3.7V** | Nominal voltage of a LiPo cell |
+| **4.2V** | Max charge voltage of a LiPo cell |
+| **Below 3.3V** | Not recommended to discharge below this as it affects the battery's long term health, but cells are still safe to use |
+| **Below 3.0V** | Most chargers will start giving low-voltage errors when you attempt to charge them. There are methods of rescuing LiPos that have been discharged to this level, but they are not reliable and may result in permanent damage |
+| **Below ~2.6V** | Immediately dispose of the battery as it is no longer safe to use |
+
+When over-discharged (or when too much current is pulled from the battery), LiPo cells tend to **puff up** (often called "spicy pillows"). Any puffed LiPos should be disposed of immediately.
+
+![Puffed LiPo](/img/wiki/testing-safety/lipo-puffed-1.png)
+
+![Puffed LiPo](/img/wiki/testing-safety/lipo-puffed-2.png)
+
+![Puffed LiPo](/img/wiki/testing-safety/lipo-puffed-3.png)
+
+:::warning
+When measuring the voltage of LiPo batteries, keep in mind that often some cells may discharge more than others, especially in cases of excessive over-discharge or damage. In extreme cases, one cell may drop to as low as under 1V while the others are still at a healthy voltage.
+
+Thus, when testing for battery health it's important to **measure each cell individually** rather than simply checking the entire battery's voltage, which can be done using the battery's balance connector as shown below. When checking voltages, be careful not to short the battery or any of its individual cells.
+
+![LiPo balance connector](/img/wiki/testing-safety/lipo-balance-lead.png)
+
+Some balance plugs may have different colors (one red wire and the rest black), these can be measured in the same way – simply keep the positive end of the multimeter on the red wire and sequentially move the negative end along the black wires.
+:::
+
+### Safe Disposal of LiPo Batteries
+
+There are several ways to safely dispose of damaged LiPo batteries. Generally, it is best practice to **discharge them as much as possible before discarding**. This can be accomplished by:
+- Attaching a small load like an **LED light** to drain the battery over several days
+- Or leaving it in a **container of salt water** for a few weeks
+
+Afterwards, the LiPo can be safely disposed of at any location that accepts used batteries for disposal/recycling. **Never toss LiPo batteries in the regular trash!**
+
+### Safe LiPo Storage
+
+Store your LiPos in a **cool, dry place** inside a fireproof container like the one you use for charging. Before storing your batteries for an extended period of time, make sure to charge/discharge them to **storage charge**, which is around **3.8V per cell**. Most chargers will have a function to do this automatically.
+
+**Do not leave LiPos plugged into your robot or charger!**
+
+### Dealing with LiPo Fires
+
+You may do everything correctly, but there still may be circumstances where unfortunate things happen and your battery ends up going up in flames. LiPo smoke can be differentiated from regular electrical smoke as it is **thicker and white** rather than grey/black – it is also denser and will tend to form opaque clouds and pool along the ground.
+
+![LiPo fire](/img/wiki/testing-safety/lipo-fire-1.png)
+
+![LiPo fire](/img/wiki/testing-safety/lipo-fire-2.png)
+
+:::danger
+**LiPo fires cannot be extinguished using conventional methods** and require specialized fire extinguishers to put out, so the best way to deal with a fire is to get the battery outside as quickly as possible and let it burn itself out.
+
+This is why LiPo bags are so important – they give you something to hold onto to transport a burning battery. **Avoid breathing in the smoke as it is highly toxic.**
+:::
+
+## Testing Electronics
+
+One of the most nerve-wracking parts of building a robot is plugging your battery in and turning it on for the first time. Will it work? Or will it all go up in flames? Thankfully, there are many ways that the latter outcome can be avoided.
+
+1. The first and most simple thing to do is to **double-check your wiring** and reference wiring diagrams for all your electronic components. This seems obvious but many electrical failures are caused by people failing to do this – don't become one of them!
+2. Before your first test, make sure all your wiring is connected properly and all **exposed solder joints are covered** by heat-shrink or electrical/Kapton tape. Avoid testing with things like alligator clips before you're done wiring. Additionally, make sure all your connectors are attached the right way!
+3. The most foolproof way to avoid shorts is to use a **smoke stopper**. This is a device that goes between your battery and the rest of your electronics, and quickly shuts off power to prevent damage if a rush of current from a short is detected. Using a smoke stopper is highly recommended whenever testing an electrical system for the first time as it can easily save many expensive components.

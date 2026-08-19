@@ -1,0 +1,98 @@
+---
+sidebar_position: 1
+slug: /manufacturing/manufacturing
+---
+
+# Manufacturing
+
+"How do I make these parts?" This is one of the most important questions that should be asked during the process of designing a combat robot, or any engineering project for that matter. Choosing the correct manufacturing method and designing parts tailored for the strengths and weaknesses of that particular method can save a huge amount of time and money.
+
+This section describes the most common manufacturing methods for various parts, their strengths and weaknesses, and how to properly design parts for each method to maximize performance and reduce cost.
+
+:::note
+This information is based on personal experience designing and ordering parts, from a North American perspective, rather than a general overview of manufacturing.
+:::
+
+## Laser Cutting
+
+Laser cutting is the most common manufacturing method for **2D metal parts**. A laser is aimed at a sheet of material, piercing it and tracing a 2D profile to cut parts. Laser cutting is fast, cheap, and relatively accessible compared to other manufacturing methods.
+
+There are quite a few types of laser cutters, with different abilities, uses, and costs:
+
+### Diode Lasers
+The cheapest and weakest type of laser cutter. Can be purchased for under $1000 and are often sold for residential use as laser engravers. Usually coming with a power rating of **10-40W**, they can only cut paper and very thin wood making them relatively useless for combat robot parts outside of wood prototypes or engraving designs into parts.
+
+![Diode laser](/img/wiki/manufacturing/diode-laser-1.png)
+
+![Diode laser](/img/wiki/manufacturing/diode-laser-2.png)
+
+![Diode laser](/img/wiki/manufacturing/diode-laser-3.png)
+
+### CO2 Lasers
+Much more powerful and useful as a manufacturing tool. **40-60W** versions are capable of cutting thicker wood and some plastics (the most relevant of which for combat are polycarbonate and Tegris), and can often be found in public makerspaces making them relatively accessible. More powerful machines up to 150W or so can be found in dedicated machine shops and can cut thicker material, but are generally not capable of cutting metal.
+
+![CO2 laser](/img/wiki/manufacturing/co2-laser-1.png)
+
+### Industrial Fiber Lasers
+Vastly more powerful and usually only found at larger machine shops or manufacturing companies. They are capable of cutting most metals, making them a great way to produce 2D parts such as weapon disks, forks, wedges, motor mounts, and armor panels.
+
+Most people won't have direct access to such machines, and thus order parts through a manufacturing service. **SendCutSend** is the most popular of these services, providing a wide range of materials and thicknesses with relatively low prices and fast shipping. (Note: do not order plastic or composite parts from SCS! They are much more expensive than other options for these materials.)
+
+![Industrial fiber laser](/img/wiki/manufacturing/fiber-laser.jpg)
+
+### Design Considerations
+
+One of the downsides of laser cutting is that the heat from the laser can damage the edges of cut parts, especially on very small features such as gear teeth or thin bridges. This issue is more serious on thicker parts. As such, it is advised to **avoid small or thin features**. SendCutSend lists minimum bridge thickness and hole-to-edge distance for each material and thickness offered – it is recommended to refer to these charts when designing parts for laser-cutting.
+
+The laser's heat can also leave blobs of melted material on cut edges, as well as slightly softening hardened steels like AR500 reducing their durability a bit. However, the accessibility and low cost of laser cutting due to services like SCS make it difficult to compete with.
+
+![Laser-cut part design](/img/wiki/manufacturing/laser-design.png)
+
+One consideration with laser cutting (or any form of 2D manufacturing) is to **reduce the number of pierces** required to cut the part. In other words, reducing the number of individual non-connected cuts will reduce the amount of time required to cut the part, and as such will reduce cost.
+
+Most services that do 2D cutting will accept a **.DXF file**, which most CAD programs can export – simply select the face of your part that forms the profile that you would like to be cut and export it as a .DXF file. Make sure to specify the units (inches or mm) when sending them in – don't want to end up with a part that's 25.4x too big or small!
+
+## Waterjet Cutting
+
+Another method of cutting 2D profiles is **waterjet cutting**. Instead of using a laser, a waterjet uses a high-pressure stream of water mixed with a sand-like abrasive to cut material.
+
+- Compared to a laser, waterjets are capable of cutting a wider variety of materials, struggle less with thick material, and damage the edges of cut parts less, allowing for cutting of smaller features.
+- Unfortunately, waterjet cutting is more expensive and slower than laser cutting, and as far as is known there is no large and widespread service that provides waterjet cutting at an affordable price.
+
+Waterjet cutting is common when building larger robots with materials too thick for a laser cutter, but is uncommon in beetleweights. If you do happen to have access to a waterjet though, some people will purchase AR500 or AR600 shooting targets or offcuts off Ebay and cut weapons and forks out of them, as a waterjet won't soften the edges like a laser will.
+
+![Waterjet cutting](/img/wiki/manufacturing/waterjet-1.png)
+
+![Waterjet cut part](/img/wiki/manufacturing/waterjet-2.png)
+
+## CNC Routing
+
+CNC routing is generally the method of choice for cutting **plastics and composites**. By using a spinning endmill, much more precise and clean cuts are possible in these softer materials. A CNC router also has the benefit of being able to run at different heights, allowing for partial-depth **"2.5D" cuts**. This is particularly useful for making pockets in UHMW parts for weight reduction. Partial-depth pockets can be specified with a drawing indicating the depth of cut for each profile, or by submitting a .STEP file.
+
+![CNC router](/img/wiki/manufacturing/cnc-router-1.png)
+
+CNC routers come in many shapes and sizes, from cheap desktop units that can be bought on Amazon for a few hundred dollars to much larger industrial machines. A CNC router is a very useful tool to have, but if you plan to purchase one of the cheap consumer-oriented machines keep in mind most of them are relatively low quality and require a lot of tinkering to get them working – however, once dialled in these machines are plenty sufficient for cutting the softer plastics like UHMW that are popular in beetleweights.
+
+![CNC router](/img/wiki/manufacturing/cnc-router-2.png)
+
+Most people instead choose to use a manufacturing service to produce their UHMW, carbon fiber, or garolite parts. Two of the most popular are **CNCMadness** and **RSL**, both of which provide high-quality plastic and composite parts at low prices.
+
+The main consideration when designing for CNC routing stems from the fact that cuts are performed by a **round endmill** – as such, **sharp internal corners are impossible to cut**. This can be problematic when trying to fit parts with sharp external corners into pockets in a CNC routed part, so it is recommended to implement **dogbones** in your design to allow for proper fit of parts with sharp external corners.
+
+![CNC pocket with dogbones](/img/wiki/manufacturing/cnc-pocket-1.png)
+
+![CNC pocket with dogbones](/img/wiki/manufacturing/cnc-pocket-2.png)
+
+## 3D Manufacturing
+
+Manufacturing 3D parts in metal or solid (non 3D-printed) plastics is quite expensive, so we usually try to avoid it where possible. However, sometimes it cannot be avoided in the case of drum or beater bar weapons, or custom axles, motor mounts, weapon hubs, or pulleys where builders need greater durability than 3D-printed parts or more customization than off the shelf options.
+
+Designing for 3D parts is a very complex topic. It is generally not recommended to incorporate 3D machined parts into a beginner build as they are very expensive and will likely be rendered obsolete as you make changes to your design.
+
+If you do require a 3D machine part, most people will outsource to **Chinese prototype shops** as manufacturing in North America is exorbitantly expensive. **LTCentury**, **Zintilon**, and **RapidDirect** are popular choices – the three are pretty comparable in terms of pricing and quality and many builders will simply get quotes from all three and select the cheapest one. It is recommended to avoid **PCBWay** especially for less common materials as their material authenticity quality control can be dubious; although, they have good prices for metal 3D-printing.
+
+:::warning Note on Hardening
+If you are ordering a solid steel beater bar or drum spinner, you **must get it hardened** in order for it to be an effective weapon. The above Chinese shops can harden it for you for a relatively low price, but their quality control is lower so the hardness can be out of spec. It is highly recommended to ask for a **hardness test** to confirm the correct hardness is hit. A safer option is hardening at a local heat-treatment shop, but this can be inaccessible and expensive.
+
+Optimal hardness varies based on the type of steel you choose, but you can look at the hardness/toughness tempering curve of your material of choice to find a good balance between hardness and toughness.
+:::

@@ -1,0 +1,122 @@
+---
+sidebar_position: 2
+slug: /electronics/programming-escs
+---
+
+# Programming ESCs
+
+Modern drone ESCs have a wide range of settings that can be adjusted to optimize the ESC's performance for a given situation. They range from key parameters that impact the fundamental operation of the ESC to fine-tuning parameters for making small performance tweaks. Many of these settings are important to adjust for various combat robot applications – this section will discuss how to program ESCs for optimal combat performance.
+
+## Connecting your ESC to a Computer
+
+This section will only discuss drone ESCs with **BLheli_S, BLheli_32, or AM32** firmware, which are all programmed in more or less the same way. Other airplane or car ESCs likely run proprietary firmware that require proprietary programming tools – these are not recommended for most beetleweights and will not be discussed.
+
+To start programming your ESC, you first need a **USB-to-serial adapter**. These can be purchased from combat robotics suppliers like Repeat Robotics, as well as places like Amazon and Aliexpress.
+
+Ensure you have **CH340 drivers** installed – most computers already have them but if you're unable to connect to your ESC this may be the cause. Plug the adapter into your computer and attach the signal wires of the ESC to the adapter – the signal and ground connections are required. Some ESCs may only have a signal wire – for these you can use any other ground connection in the system, such as the ground wire from another ESC or even the main ground connections on any of the components in the system. Next, provide power to your system and you should be good to start programming!
+
+## Programming AM32
+
+Since the shutdown of BLheli_32, **AM32** has quickly become the most popular firmware for drone ESCs. It is also quite straightforward to program, offering both an online and an offline tool for loading firmware and changing settings.
+
+:::note
+AM32 v2.19 recently released which brings several new settings. Generally they can be left at defaults. Updating to the latest version is recommended since there are several bug fixes in 2.19. Keep in mind 2.19+ requires the use of the updated v1.93 offline tool, and always make sure to **write default settings after updating to 2.19+** as there is a bug that prevents the ESC from working properly otherwise.
+:::
+
+To connect with the **online tool** (am32.ca), simply connect and power on your ESC, select your COM port, and hit connect. For the **offline tool**, select your COM port, check Direct Connect, hit connect, then click M1. You should now see a menu with all the different settings you can play with.
+
+Not all settings are applicable to combat robots – if a setting is not mentioned here, you can assume that it does not need to be touched ever.
+
+### AM32 Settings
+
+- **Reverse Rotation** simply reverses the direction of the motor's rotation. It is an alternative to swapping the motor wires.
+
+- **Complementary PWM** will apply power to actively brake the motor and slow it down when throttle is reduced. It is locked on when running in bi-directional mode. Be careful when using this on weapon ESCs – running weapon braking can help you escape from tricky situations by jerking the robot aggressively but actively stopping the inertia of a spinning weapon takes a lot of power and can damage your motor and ESC. Running Brake Level controls the strength of this – keep it at the **maximum for drive applications, and at 1-3 for weapons**.
+
+- **Variable PWM** allows the output PWM timing to automatically adjust according to the motor's RPM. Always keep this on.
+
+- **Bi-Directional** allows the ESC to spin the motor in both directions. When it is off, the zero position is set to the bottom of the input range (-100%), and thus the ESC will only arm when the stick is at the bottom. When it is on, the zero position is set to the middle of the input range (0%), and thus the ESC will only arm when the stick is in the middle. The motor will then spin in one direction when throttle increases in the positive direction, and in the other direction when the throttle increases in the negative direction.
+
+- **Stuck Rotor Protection** detects when a motor is "stuck" and cuts power – it is designed as a safety measure for drones if their propellers get jammed. **Do not enable this in combat** as it is highly likely to trip and cut power when spinning up a weapon or accelerating quickly.
+
+- **Brake on Stop** applies power to the motor when it is stationary to actively stop it from moving. This is mainly intended for RC offroad vehicles to stop them from rolling down steep hills when parked. It is also helpful in combat robot drive systems, and due to some AM32 weirdness it also can help motors start from a stop more consistently. Always keep this on. Stopped Braking Level controls the strength of this – always set it to the maximum.
+
+- **Stall Protection** increases the power of the motor when it detects resistance in order to prevent it from stopping. This is helpful to overcome unusual friction introduced into your systems from things like damaged parts, so always leave it on.
+
+- **Sinusoidal Startup** changes the way the ESC drives the motor at low throttle – instead of attempting to commutate with an open-loop cycle, it will activate the coils individually in sequence like a stepper motor. This results in greater torque, smoother control, and lower minimum RPM and low throttle values. However, it draws a lot of current and can also cause desync ("stuttering") issues when the ESC switches between sinusoidal mode and regular mode at the set threshold, so is **not recommended** for combat robots. Sine Startup Range controls the throttle % below which sine mode is active, while Sine Mode Power controls the power when in sine mode.
+
+- **Timing Advance** controls how far in advance of an approaching magnet a motor coil will fire. Increasing this value will allow the motor to start up more consistently, but reduces efficiency. A good starting point is **22.5 degrees for outrunners and 15 degrees for inrunners**, and it can be increased if you experience startup issues.
+
+- **Motor KV and Motor Poles** control internal variables that optimize the ESC's performance by estimating the motor's RPM, among other things. Simply match them as closely as possible to your motor's KV and number of poles (number of magnets), respectively. As a general guideline, most beetle-sized outrunners have **14 poles** while inrunners will have 4. However, smaller outrunners such as most drive motors have 12.
+
+- **Startup Power** determines how much power is applied to the motor on startup. It is always recommended to maximize this value to allow for more consistent startup.
+
+- **PWM Frequency** controls the frequency of the PWM signals used to drive the motor. This is not adjustable when Variable PWM is enabled so you can just leave it.
+
+- **Beep Volume** adjusts the volume of the beeps heard when your ESC starts up. Maximize this value so the beeps are easier to hear.
+
+- **Low Voltage Cutoff** shuts off the ESC when input voltage drops below a certain level. This is helpful to avoid over-discharging batteries when testing, but most builders opt to leave it off for real fights.
+
+- **Temperature Limit** shuts off the ESC when its temperature exceeds a certain level. This requires the ESC to have a temperature sensor, which most commonly beetleweight ESCs do not. Either way, it's best to leave it off so it doesn't trip during a fight.
+
+- **Current Limit** caps the maximum amount of current that is allowed to flow through the ESC. This is very helpful to avoid damage to the motor and ESC when something gets jammed, for example. Unfortunately, many ESCs do not support this function – check the ESC's specifications to see if it does. Appropriate current limits vary greatly by application so consult with other builders to determine an appropriate setting.
+
+- **Input (Servo) Settings** control the range of inputs that the ESC reads from the receiver. The usual range is **1000-2000**, with 1500 representing the neutral value. A uni-directional ESC will only arm when it reads a value at or below the minimum value, while a bi-directional ESC will only arm when it reads the neutral value +/- the dead band. It is recommended to always keep the neutral value at 1500, and to increase the minimum while decreasing the maximum thresholds to **1020-1980 or so** – this ensures that the ESC can always reach maximum positive and negative values even if the transmitter may not be properly sending the full range of 1000-2000.
+
+When you're done programming, make sure to hit **Save** and then **Disconnect** before unplugging your ESC and powering down.
+
+Due to its relative youth and hastiness of development after the shutdown of BLheli_32, AM32 ESCs can unfortunately be finicky at times, and certain issues may require unintuitive fixes. Troubleshooting AM32 is discussed in [Appendix V](/appendices/am32-troubleshooting).
+
+## Programming BLheli_32
+
+BLheli_32 ESCs connect to your computer the same way as AM32 ESCs, but use the **BLheli_32 Suite**. Since the company providing BLheli_32 licenses is now defunct, the vast majority of new ESCs sold use an unofficial "prototype" version of the firmware. It functions the same as regular BLheli_32, but cannot be updated and requires a modified version of the BLheli_32 Suite.
+
+To connect your ESC, open the configurator and open the **Select BLheli_32 Interface** menu in the top bar, then select **BLheli_32 Bootloader (USB/COM)**. Next, select your port, hit connect, then read setup.
+
+### BLheli_32 Settings
+
+- **Rampup Power** determines how much power is applied to the motor on startup. It is always recommended to maximize this value to allow for more consistent startup.
+
+- **Temperature Protection** shuts off the ESC when its temperature exceeds a certain level. This requires the ESC to have a temperature sensor, which most commonly beetleweight ESCs do not. Either way, it's best to leave it off so it doesn't trip during a fight.
+
+- **Low RPM Power Protect** reduces power to the motor at low RPMs to prevent excessive current when under high load. It's generally best to turn this off in combat robots.
+
+- **Sine Modulation Mode** does the same thing as AM32's sinusoidal startup. Similarly, it is recommended to keep it off for combat robots.
+
+- **Auto Telemetry and SBUS Channel** don't do anything with the common beetleweight ESCs so don't worry about them.
+
+- **Motor Direction** allows you to choose between normal (unidirectional), reversed, bidirectional, bidirectional reversed, and "soft" versions of bidirectional that limit the speed at which directional changes can occur. Bidirectional soft is not necessary for drive, but can be helpful for bidirectional weapons.
+
+- **Demag Compensation** is a complex setting that essentially reduces the chances of desync issues at the cost of top-end performance when increased. Most of the time you can just leave this at its default value.
+
+- **Motor Timing** controls how far in advance of an approaching magnet a motor coil will fire, measured in degrees. Increasing this value will allow the motor to start up more consistently, but reduces efficiency. BLheli_32 offers a wider range of motor timings than AM32, which means the maximum value is not always optimal. Timings between **20-25 degrees** are good most of the time, but you can increase it if you're having desync issues.
+
+- **Maximum Acceleration** controls the maximum acceleration of the motor. This can be set to maximum most of the time, but for particularly large weapons it may be advisable to limit acceleration a bit.
+
+- **Stall Protection** detects when a motor is "stuck" and cuts power – it is designed as a safety measure for drones if their propellers get jammed. Not to be confused with the AM32 setting of the same name, this is equivalent to Stuck Rotor Protection in AM32. Set this to **Relaxed** to prevent it from tripping and cutting motor power during fights.
+
+- **Servo Settings (Min, Max, Center throttle)** work the same here as they do in AM32.
+
+- **Brake on Stop** applies power to the motor when it is stationary to actively stop it from moving. This is helpful to enable at high levels for drive systems.
+
+- **Non-Damped Mode** will apply power to actively brake the motor and slow it down when throttle is reduced. It is helpful to turn it on for drive systems, but make sure to **disable it for weapon systems** as actively stopping the inertia of a spinning weapon takes a lot of power and can damage your motor and ESC.
+
+- **Startup Beep Volume** adjusts the volume of the beeps heard when your ESC starts up. Maximize this value so the beeps are easier to hear.
+
+- **Beacon Settings** don't do anything with the common beetleweight ESCs. Ignore them.
+
+- **PWM Frequency Settings** can just be left at default.
+
+- **Throttle Cal Enable** allows you to calibrate the throttle input range from the transmitter when enabled. It only works in unidirectional mode. Turn on the ESC with the stick at its highest point, wait for a beep, then move the stick to the lowest point, and wait for another beep. Then the ESC will arm and calibration is complete.
+
+  This is helpful to ensure you're getting the full range of output values, but can be annoying if activated accidentally. It's recommended to turn it off and just tune the servo settings manually instead.
+
+## Programming BLheli_S
+
+Being the predecessor of BLheli_32, **BLheli_S** settings are almost identical to BLheli_32 settings – it's just missing a few of the more advanced ones, but the existing ones work exactly the same as BLheli_32's versions and thus should be tuned the same way.
+
+BLheli_S is open-source like AM32 and uses the **BLheli Suite** to change settings. It works exactly the same as the BLheli_32 Suite, just for BLheli_S ESCs instead. The same USB linker can also be used.
+
+:::note
+BLheli_S has reduced performance compared to 32-bit alternatives. This is generally not significant in weapon applications but can be noticeable for drive systems. BLheli_S also has hard-coded input delay when changing directions and starting from a stop, making it less than ideal for drive.
+:::

@@ -1,0 +1,89 @@
+---
+sidebar_position: 1
+slug: /drive-systems/drive-systems
+---
+
+# Drive Systems
+
+The drive system is arguably the most important part of a robot, as it's the only thing keeping you from being counted out. Additionally, a powerful weapon is useless if you cannot deliver it effectively into the opponent. Most experienced builders will stress the importance of having a robust drive system - which is why this topic is discussed before weapon design. Always remember, **drive wins fights**, and a robot where drive is an afterthought generally isn't good!
+
+There are many ways to design a robust drive system, and a few of the most popular will be discussed below.
+
+## Direct Drive
+
+The most simple, and most common type of drive system is **direct drive**. This involves simply attaching a wheel to the output shaft of your drive motor. Direct drive is simple, robust, and compact, making it an attractive choice for many types of robots.
+
+The downside of direct drive is that the drive motor is subjected to shock from direct hits to the wheel, or worse, the output shaft. However, given a soft and shock-absorbing wheel, and a motor that is designed to take the shock loads of combat robots, direct drive can be very durable.
+
+![Direct drive](/img/wiki/drive-systems/direct-drive-1.png)
+
+![Direct drive](/img/wiki/drive-systems/direct-drive-2.png)
+
+:::note What's a gearmotor?
+The vast majority of robots use **gearmotors** for their drive systems – a motor with an attached gearbox that reduces speed and increases torque to a level suitable for driving a robot. There are many types of gearmotors, including several designed specifically for beetleweight drive systems that will be discussed in the [Electronics](/electronics/electronics-and-wiring) section. For the time being, assume "drive motor" means gearmotor unless otherwise specified.
+
+![Gearmotor](/img/wiki/drive-systems/gearmotor-1.png)
+
+![Gearmotor](/img/wiki/drive-systems/gearmotor-2.png)
+:::
+
+## Indirect Drive
+
+**Indirect drive** involves attaching a gear or timing pulley to the drive motor output shaft, and using that to drive the wheel which spins on its own independent axle. This allows shock loads to be isolated from the drive motor, protecting it. Additionally, it allows the wheel to be positioned away from the drive motor which can help with packaging.
+
+![Indirect drive](/img/wiki/drive-systems/indirect-drive-1.png)
+
+The wheel's axle is almost always a **dead axle**, meaning it does not spin. The **Repeat Robotics Drive Axle** is a very popular solution for drive axles. A bearing is inserted into the wheel, which spins around the shaft. Brass bushings are a common choice, as are nylon bushings with lubricant. Plastic wheels can even be run directly on an axle with no bearing, given sufficient grease and low RPM.
+
+![Indirect drive dead axle](/img/wiki/drive-systems/indirect-drive-2.png)
+
+Indirect drive requires a pulley or gear to be attached to the wheel to transfer power. This is easy with 3D-printed wheels, as it can simply be printed with the wheel as one piece. However, with other wheel options, a (most often 3D-printed) pulley or gear must be attached separately.
+
+4mm wide **S3M timing belts** from Fingertech Robotics are a popular choice for indirectly driving wheels. For a simpler solution, 4mm or thicker green polyurethane belt also works. For gears, 3D-printed nylon or TPU gears of mod 1.5 or greater are common.
+
+2WD indirect drive is uncommon in beetleweights, as the additional shock isolation is often not necessary with the many durable drive motor options available today. However, it is still a good choice in some situations.
+
+## Direct 4WD
+
+While 2WD systems offer greater simplicity and lower weight, **4WD systems** generally offer greater stability and controllability, as well as a degree of redundancy as they can continue working with one or two wheels missing.
+
+![Direct 4WD](/img/wiki/drive-systems/direct-4wd-1.png)
+
+One popular method of building a 4WD drivetrain is to attach one wheel directly to the drive motor, and use gears (for wheels that are close together) or timing pulleys (for wheels that are further apart) to transfer power to another wheel. Both wheels have gears or pulleys attached to them, and the second wheel sits on a dead axle, much like with indirect drive.
+
+![Direct 4WD with gears](/img/wiki/drive-systems/direct-4wd-gear.png)
+
+![Direct 4WD with belts](/img/wiki/drive-systems/direct-4wd-belt.png)
+
+When designing 4WD systems, it is important to maintain rigidity between the two wheels on each side to ensure the pulleys or gears are properly engaged. Most materials are stiff enough to accomplish this, but be careful when using highly flexible materials such as TPU.
+
+## Indirect 4WD
+
+**Indirect 4WD** involves attaching a gear or pulley to the drive motor's output shaft, which then indirectly drives both the front and rear wheels. This allows the drive motor to be fully isolated from any shocks to the wheels, in addition to allowing more freedom packaging-wise and ensuring that a drive side cannot be fully disabled by destroying any one wheel.
+
+![Indirect 4WD](/img/wiki/drive-systems/indirect-4wd-1.png)
+
+A great example of an indirect 4WD system is the **Peter Bar Kit from Repeat Robotics**. Like many other similar systems, it uses a double-wide timing pulley on the drive motor that accommodates two belts – one to the front wheel and one to the rear wheel.
+
+## Multi-Stage Reduction Drive
+
+Instead of a gearmotor, this type of drive setup uses a **system of gears and pulleys** to reduce the speed of a motor and transfer power to the wheels. This drive system is common in larger robots where sufficiently durable gearmotors are hard to come by, but have been seeing more use in smaller classes recently.
+
+![Multi-stage reduction drive](/img/wiki/drive-systems/multi-stage-drive-1.png)
+
+![Multi-stage reduction drive](/img/wiki/drive-systems/multi-stage-drive-2.png)
+
+- **Pros:** Allows the use of a regular drone motor to power the drivetrain as opposed to a heavier and more expensive gearmotor. Lots of room for flexibility and creativity in how you want to build the drivetrain.
+- **Cons:** Complex and more challenging to build, and can be more fragile.
+
+![Multi-stage reduction drive](/img/wiki/drive-systems/multi-stage-drive-3.png)
+
+## Tangent Drive
+
+Also known as **friction drive**, tangent drive involves pressing the shaft of a regular drone motor directly against the wheel in order to transfer power and provide a large reduction. Tangent drive is the most compact and lightweight drive system and allows use of the largest and most powerful motors of the common beetleweight drive systems, but this comes with a few major drawbacks.
+
+![Tangent drive](/img/wiki/drive-systems/tangent-drive-1.png)
+
+Because it relies on friction between a relatively small motor shaft and the wheel, it is crucial to maintain pressure between the two when designing a tangent drive system. The motor and wheel must both be mounted to a rigid plate, and the wheel must be sufficiently hard to avoid being shredded by the motor shaft. It is important to protect the wheels when using tangent drive, as even small amounts of damage to the wheel can lead to it losing contact with the motor shaft. These disadvantages can be somewhat rectified by using a 4WD system where the motor shaft is sandwiched between two wheels, making it easier to maintain pressure.
+
+Another downside of tangent drive is that it often cannot provide as much reduction as an actual gearmotor, leading to a drive system that is very fast and difficult to control. Although, this speed can be harnessed to pull off some rather impressive driving.

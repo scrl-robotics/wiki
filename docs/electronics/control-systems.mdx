@@ -1,0 +1,249 @@
+---
+sidebar_position: 3
+slug: /electronics/control-systems
+---
+
+# Control Systems
+
+Almost all combat robots utilize an off-the-shelf radio control system designed for RC drones, airplanes, cars, etc. These systems are affordable, reliable, and easy to set up, while some of the more modern ones can provide a vast level of customizability as well for advanced users. This section will discuss the most popular radio systems and how to set them up for combat robotics use.
+
+## Transmitters and Protocols
+
+The **transmitter** is a device that takes user inputs via sticks, buttons, dials, etc. and sends signals to the receiver telling it to command the ESCs to spin the motors in a particular way. Most of the settings that are used to mediate between your inputs and the way the motors spin are set on the transmitter.
+
+The vast majority of transmitters are sufficient for operating a combat robot, but more expensive and modern transmitters can offer greater reliability as well as greater customizability in how inputs are translated to motor outputs, allowing for easier and smoother operation of your robot.
+
+In general, there are two main styles of radio transmitters:
+
+![Transmitter styles](/img/wiki/control-systems/transmitter-styles.png)
+
+### Air Transmitters
+Are designed for RC drones, airplanes, and helicopters. They come in many shapes and sizes from large box-shaped ones to small gamepad-shaped ones, but always have **two gimbal sticks** for the main inputs, and some models may have a variety of buttons, dials, switches, and triggers around the top of the transmitter for auxiliary inputs or modifiers.
+
+Air transmitters were originally designed for RC airplanes, so their inputs are defined as the functions of a standard airplane. Most commonly, the right stick is spring-centered both up/down (**Elevator**) and left/right (**Aileron**), while the left stick is spring-centered left/right (**Rudder**) but not up/down (**Throttle**).
+
+Usually, by default, elevator is mapped to channel 1, aileron to channel 2, throttle to channel 3, and rudder to channel 4. This configuration is called **AETR** (Aileron, Elevator, Throttle, Rudder). The remaining auxiliary switches etc. are assigned to channel 5 and onward.
+
+![Air transmitter](/img/wiki/control-systems/air-transmitter.png)
+
+:::note Combat convention
+On the majority of combat robots that use air radios, the two drive ESCs are connected to the **aileron and elevator inputs (CH 1 and 2)**, allowing you to drive the robot with a mixed single-stick arcade-style system (mixing covered below). **Spinning weapons** are connected to the throttle input (CH 3) allowing you to manage its speed without a self-centering spring, while other types of weapons that need to move in both directions such as lifters and hammers utilize the rudder input (CH 4).
+:::
+
+### Surface Transmitters
+Also known as **pistol-grip transmitters**, are designed for RC cars and are shaped like, well, a pistol. They feature a trigger and a large knob for main inputs, and like air radios some models may also have other input devices for auxiliary inputs.
+
+Surface transmitters were originally designed for RC cars, so their inputs are defined as the functions of an RC car. The trigger (**Throttle**) is spring-centered, and the knob (**Steering**) is as well. By default, throttle is mapped to channel 1, and steering to channel 2. Since cars have less functions than air vehicles, surface transmitters only have 2 "easily accessible" inputs rather than the 4 on air transmitters. The remaining auxiliary switches etc. are assigned to channel 3 and onward.
+
+Surface transmitters generally allow for more accurate driving, since they are optimized for RC cars that are much more similar to combat robots than drones or airplanes. Like with air transmitters, the two drive ESCs are connected to CH 1 and 2 through mixed inputs.
+
+The downside of surface transmitters is that only two inputs are easily accessible, making it more difficult to operate the weapon system. Solutions to this problem vary by preference and by the particular model of transmitter – some drivers assign CH 3 to an auxiliary knob and use that to operate the weapon, while others will use a multi-position switch or series of buttons that set CH 3 to a predetermined set of inputs, allowing weapon speed to be set to a series of predetermined speeds.
+
+![Surface transmitter](/img/wiki/control-systems/surface-transmitter.png)
+
+Which type of transmitter you decide to use is purely up to preference, as both have their strengths and weaknesses. However, **air transmitters are much more common** so this guide focuses on them.
+
+## Common Transmitters and Protocols
+
+Different brands of transmitters will communicate via different **protocols**, and thus will only work with receivers that are compatible with one of the protocols the transmitter supports. Thus, when you choose a transmitter + receiver combo, make sure that they are compatible if you choose to buy them separately.
+
+Some transmitters are compatible with multiple protocols. For example, when companies release upgraded versions of their protocols, often new transmitters will still support older versions. Some transmitters are also designed to be compatible with a variety of protocols from different companies, such as **Radiomaster's 4in1 transmitters**. Many modern transmitters also allow you to purchase additional modules which can expand their support for different protocols. Receivers generally only work with a single protocol.
+
+### Flysky FS-i6
+The **Flysky FS-i6** has long been one of the most popular beginner's transmitters for combat robots. It can be purchased for cheap off Aliexpress, is easy to set up and use, and has enough functionality to comfortably control the vast majority of combat robots. There is also an upgraded version called the **FS-i6X** which has some minor upgrades and QoL improvements but maintains the same overall functionality.
+
+![Flysky FS-i6 transmitter](/img/wiki/control-systems/fs-i6.png)
+
+The FS-i6 uses the **AFHDS 2A protocol**, which is used by the majority of Flysky transmitters and receivers. It is also compatible with older AFHDS receivers. Most FS-i6's on Aliexpress are sold in a bundle with the **FS-iA6 or FS-iA6b receivers**, which work well but are rather large. Most people using this transmitter choose to use the **FS2A receiver**, which is a very small and cheap 4-channel receiver.
+
+![FS2A receiver](/img/wiki/control-systems/fs2a-receiver.png)
+
+You can solder wires directly to the FS2A, or you can solder on the included 90-degree pin header to use it with regular servo plugs. Soldering on the pin header backwards (i.e. with the pins facing inward) is recommended to save space.
+
+![FS2A layout](/img/wiki/control-systems/fs2a-layout-1.png)
+
+![FS2A layout](/img/wiki/control-systems/fs2a-layout-2.png)
+
+:::note
+Because of its ubiquity, many combat-specific electronics components with built-in receivers such as the **Just 'Cuz Robotics Motherboard** or the **Malenki HV** are built around the FS2A receiver or AFHDS 2A protocol.
+:::
+
+### Radiomaster Pocket / Zorro
+An alternative to the FS-i6 that has been rapidly increasing in popularity in recent years are the **Pocket** or **Zorro** transmitters from **Radiomaster**. The Zorro is more expensive than the Pocket but has higher-quality components – otherwise, their main difference is form factor.
+
+- These transmitters are more expensive than the FS-i6 but come with the **EdgeTX firmware** which offers far more customizability.
+- They also have much better build quality, and run on rechargeable batteries rather than AA's.
+
+![Radiomaster Pocket](/img/wiki/control-systems/radiomaster-pocket.png)
+
+The Radiomaster transmitters mainly use a protocol called **ELRS**, which is a modern and open-source protocol with many powerful and useful functions – from a performance standpoint, it is the preferred protocol for combat robots (and most RC things in general).
+
+![ELRS receiver](/img/wiki/control-systems/elrs-receiver-1.png)
+
+However, if you already have non-ELRS receivers on hand, the Pocket can be bought in a **CC2500 version** which is compatible with several other protocols, and the Zorro can be bought in a **4in1 version** which is also compatible with several other (different) protocols, most importantly AFHDS 2A.
+
+There are two types of receivers that are popular with the ELRS protocol:
+1. **Radiomaster's ER line of receivers**, which come in several versions supporting between 3 and 8 channels – the 3-channel (**ER3C-i**) and 4-channel (**ER4**) are the most common.
+2. **CRSF nano-receivers**, which are extremely small and inexpensive. However, using these receivers requires flashing custom firmware and doing some finicky soldering which is an advanced topic.
+
+![CRSF nano-receiver](/img/wiki/control-systems/elrs-receiver-2.png)
+
+### Surface Transmitter Options
+If you are looking for a surface transmitter, the **Radiomaster MT12** is the best option. It offers the same great customizability as the Pocket and Zorro, and comes in both ELRS and 4in1 versions. For a more budget-friendly option, the **Radiolink RC4GS** works well but lacks the customizability of the MT12 – it works with any Radiolink-branded receiver.
+
+![Surface radio](/img/wiki/control-systems/surface-radio-1.png)
+
+![Surface radio](/img/wiki/control-systems/surface-radio-2.png)
+
+### Recommendations
+
+:::tip
+For beginners getting into the sport, pick up an **ELRS Radiomaster Pocket with an ER4 receiver**. This combination offers excellent performance and future customizability at a cost only slightly higher than an FS-i6. More importantly, the Pocket (Crush) comes in a selection of fun colors!
+:::
+
+## Initial Setup and Binding
+
+The first thing you need to do when you obtain a transmitter and a receiver is to **pair** them, so the receiver receives signals from and only from your transmitter. This process is known as **binding**, and it differs based on your transmitter/receiver combo.
+
+### Binding the FS-i6
+
+First, your receiver will need power to complete the binding process. Connect a BEC, whether a stand-alone one or one built into an ESC, to any channel of the receiver.
+
+![FS-i6 binding receiver](/img/wiki/control-systems/fs-i6-binding-receiver.png)
+
+1. If you are using an **FS2A**, hold the button while turning on power to the receiver to enter binding mode.
+2. If you are using a larger Flysky receiver without a button like the FS-iA6, bridge the signal and ground pin of the VCC channel using the included binding plug, then provide power to the receiver.
+
+In either case, the light on the receiver should start blinking rapidly.
+
+Next, enter binding mode on the FS-i6 transmitter. Turn it on while holding the **Bind button** near the bottom left of the screen. It should display "RXBinding…".
+
+![FS-i6 binding transmitter](/img/wiki/control-systems/fs-i6-binding-transmitter.png)
+
+If successful, the light of the receiver will turn solid, and the screen on the transmitter will go to the main menu. If you are using an FS2A, the transmitter will always get stuck on the RXBinding screen – **reboot the transmitter** to complete binding. If you're using a binding plug, remove it.
+
+![FS-i6 binding success](/img/wiki/control-systems/fs-i6-binding-success.jpg)
+
+### Binding the ELRS RM Pocket/Zorro
+
+ELRS transmitters and receivers support several different types of binding, but the one preferred for combat is the **Bind Phrase** method as it is the most reliable and resistant to interference.
+
+**To set up a bind phrase on the transmitter:**
+1. Power on your transmitter and press the **SYS** button to access the system settings.
+2. Navigate to **ExpressLRS → WiFi Connectivity** and click **Enable WiFi**. This will turn on the transmitter's WiFi hotspot.
+   > Sometimes the ExpressLRS menu takes a long time to load - this is normal. However, if it is taking an unusually long time (>5mins or so), navigate to **MDL → Setup → Internal RF** and ensure that Mode is set to CRSF.
+3. On a computer or mobile device, connect to the WiFi network **"ExpressLRS TX"** using the password **"expresslrs"**.
+4. Once connected, a menu will pop up on your screen. Under the **Options** tab, enter your **Bind Phrase**. Any receivers with the same phrase will automatically bind to your transmitter.
+5. Hit **Save & Reboot** to save your settings, then disconnect from the transmitter WiFi and turn it off.
+
+![ELRS transmitter WiFi](/img/wiki/control-systems/elrs-wifi-1.png)
+
+**To set the bind phrase on the receiver:**
+1. Give the receiver power and wait **60 seconds** for the WiFi hotspot to turn on automatically. The light on the receiver will start blinking very fast to indicate this.
+2. On a computer or mobile device, connect to the WiFi network **"ExpressLRS RX"** using the password **"expresslrs"**.
+3. Enter your bind phrase and click **Save & Reboot**, then disconnect from the receiver WiFi and turn off the receiver.
+
+![ELRS receiver WiFi](/img/wiki/control-systems/elrs-wifi-2.png)
+
+### Connecting ESCs to the Receiver
+
+Now, connect your ESC signal wires to your receivers:
+- The two drive sides go in **channels 1 and 2**
+- The spinning weapon in **channel 3**
+- Any sort of bi-directional arm goes in **channel 4**
+- The BEC can plug into any unused channel
+
+Make sure they're plugged in the correct direction – most receivers will have markings indicating which way the signal, power, and ground wires should go. For the FS2A, see the pinout diagram below, and mind the orientation of the receiver.
+
+![FS2A pinout](/img/wiki/control-systems/fs2a-pinout.png)
+
+## Drive Mixing
+
+If you try to drive your robot at this point, you may notice that moving the stick up and down moves one side of the drive, while moving it left and right moves the other side. This makes sense, as up/down controls channel 1 and thus the ESC that is connected to channel 1, while left/right controls channel 2 and thus the ESC that is connected with channel 2. However, this is not very intuitive for driving so you need to set up a **mix** so that the robot moves in a more intuitive way relative to stick inputs. The below diagram from Bristol Bot Builders demonstrates what we are trying to achieve.
+
+![Drive mixing diagram by Bristol Bot Builders](/img/wiki/control-systems/mixing-diagram.png)
+
+### The Logic Behind Mixing
+
+We want the robot to go **forward** when we push the stick forward, **backward** when we pull the stick backward, and **turn** when we push it left or right. We need to implement two mixes in order to do this.
+
+**The first mix handles driving forwards and backwards.** Before mixing, moving the stick up and down results in input to channel 1, but not to channel 2. What we want is for both channels 1 and 2 to go forward when we push the stick forward, and for both to go backwards when we pull the stick backwards. Thus, we have to implement a **+100% mix** where channel 1 is the master and channel 2 is the follower. This means that any input to channel 1 is also applied to channel 2 with a +100% multiplier, meaning it effectively mirrors channel 1's behaviour. Now, when we push the stick forward, both drive sides will go forward at the same speed, and when we pull the stick backward, both drive sides will go backward at the same speed.
+
+**The second mix handles turning.** Before mixing, moving the stick left and right results in input to channel 2, but not to channel 1. What we want is for channels 1 and 2 to go in opposite ways when we push the stick left, and for both to go in opposite ways but in the opposite direction when we push the stick right. Thus, we have to implement a **-100% mix** where channel 2 is the leader and channel 1 is the follower. This means that any input to channel 2 is also applied to channel 1 with a -100% multiplier, meaning it mirrors channel 2's behaviour but in the opposite direction. Now, when we push the stick left, both drive sides go in opposite ways at the same speed. This allows the robot to turn.
+
+### Drive Mixing on the FS-i6
+
+Setting up a drive mix on the FS-i6 is very simple:
+1. Press and hold the **OK** button to access the menu, and select **Functions Setup**.
+2. Navigate to the **Mixes** menu, and copy the settings for Mixes #1 and #2 (as described above).
+3. Make sure to press and hold **Cancel** to save your settings.
+
+![FS-i6 mix settings](/img/wiki/control-systems/fs-i6-mix-settings.png)
+
+After you do this, you may notice that your robot is still not driving correctly. When you push the stick up, it may move backwards or turn instead of moving forwards. To correct this, we need to reverse the motors and/or swap channels 1 and 2. Below is a simple list of steps that can be used to determine the correct configuration:
+
+1. Reverse one or both motor directions until the robot drives forward when you push the stick forward.
+2. Try to turn. If it turns the right way, you're good to go! If it turns the wrong way, swap channels 1 and 2 on your receiver.
+3. Repeat step 1 if you swapped the channels.
+
+To reverse motor direction, simply swap the leads on a brushed motor, or swap any two phases on a brushless motor. Alternatively, you can reverse channels on the FS-i6 by navigating to **Model Settings → Reverse**, where you can reverse the direction of your inputs.
+
+:::warning
+Be careful not to accidentally reverse the weapon input! If your weapon throttle is at zero when you do this, it will instantly spin up to full power.
+:::
+
+### Drive Mixing on the RM Pocket/Zorro
+
+Drive mixing on an EdgeTX transmitter is a similar process as the FS-i6:
+1. Press the **MDL** button then scroll until you reach the **Mixes** screen.
+2. Add a mix to CH1 Ail by clicking and holding on them and selecting **Insert After**. Next, edit this new mix you added by pressing and holding on them and selecting **Edit**, then copy the settings described above.
+
+![EdgeTX mix CH1](/img/wiki/control-systems/edgetx-mix-ch1.png)
+
+3. Next, add a mix to CH2 Ele as well, and copy the settings described above.
+
+![EdgeTX mix CH2](/img/wiki/control-systems/edgetx-mix-ch2.png)
+
+The mix screen should look like this when you're done:
+
+![EdgeTX mixes final](/img/wiki/control-systems/edgetx-mix-final.jpg)
+
+4. Finally, utilize the steps listed in the above section to finish configuring your drive.
+
+Reversing can also be done on the transmitter – press the **MDL** button then scroll until you reach the **Output** screen. You can then reverse by editing the channel you'd like to reverse, and clicking Direction to enable INV.
+
+## Setting Failsafe
+
+For safety reasons, all robots competing at competitions are required to have proper **failsafes** set. This means that if the receiver loses connection with the transmitter for whatever reason, all motors must stop moving automatically. Most control systems will allow for configuration of behaviour upon loss of connection.
+
+### Setting Failsafe on the FS-i6
+
+To set failsafe on the FS-i6, access the main menu by holding OK, then navigate to **System Setup → RX Setup → Failsafe**. The failsafe values should be set correctly by default, so simply turn them on for channels 1-4.
+
+### Setting Failsafe on FS2A Receivers
+
+Setting failsafe is a bit weird when working with FS2A receivers. There are two versions of the FS2A receivers commonly referred to as the **square chip** and **rectangle chip** versions, after the shape of their main processor chip.
+
+![FS2A chip versions](/img/wiki/control-systems/fs2a-chip.png)
+
+- The **square chip** versions will obey failsafe values set on the transmitter, but may require the robot to be power-cycled once or twice after setting the failsafe for it to start working properly.
+- **Rectangle chip** versions ignore failsafe settings set on the transmitter – instead, while your robot is on and the transmitter sticks are at the values you would like the robot to failsafe to, **press and hold the button until the light flashes a few times**. This will save the current input values as failsafe values.
+
+### Setting Failsafe on ELRS Receivers
+
+With ELRS systems, failsafe is set on the **receiver**. To access failsafe settings, connect your receiver to your laptop or mobile device via WiFi like you did to set the bind phrase, then under the **Model** tab, set your values to:
+- **1500 (central value)** for channels 1, 2, and 4
+- **1000 (minimum value)** for channel 3
+
+You can also set them to "No Pulses", but this does not work with all ESCs. Save your settings and disconnect from WiFi.
+
+Now your control system should be good to go! Make sure to do some testing to make sure everything is moving properly!
+
+:::note
+Most ESCs will not arm unless they detect the **zero position** (position at which the motor is stationary) as a safety measure to stop motors from spinning up immediately when power is supplied.
+
+- When an ESC is set to **bi-directional mode** such as with a drive ESC, the zero position is when the stick is in the middle.
+- When an ESC is set to **normal (uni-directional) mode** such as with a weapon ESC, the zero position is when the stick is at the bottom.
+
+Your ESCs will not arm unless they detect these inputs first from the transmitter.
+:::
