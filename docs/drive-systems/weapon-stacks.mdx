@@ -11,7 +11,9 @@ Now that you (hopefully) have designed a powerful and durable spinning weapon, t
 
 The majority of robots will use either **ball bearings** or **needle-roller bearings** in spinning weapons.
 
-![Bearing types](/img/wiki/weapon-stacks/bearing-1.png)
+![Bearing types](/img/wiki/weapon-stacks/bearing-types.png)
+
+*Ball bearings (left) and needle-roller bearings (right) are the two most common weapon bearing types.*
 
 ### Ball Bearings
 - **Pros:** Lower friction, lower slop, and having an inner race that can be used to take up axial loads on the bearing.
@@ -19,11 +21,9 @@ The majority of robots will use either **ball bearings** or **needle-roller bear
 
 Ball bearings are popular in larger diameter weapons where low slop is crucial, and many builders will choose to use **angular-contact ball bearings** which can take axial loads much more effectively as the entire race is load-bearing, but only in one direction.
 
-![Ball bearing](/img/wiki/weapon-stacks/ball-bearing-1.png)
+![Ball bearing](/img/wiki/weapon-stacks/ball-bearing.png)
 
-![Ball bearing](/img/wiki/weapon-stacks/ball-bearing-2.png)
-
-![Ball bearing](/img/wiki/weapon-stacks/ball-bearing-3.png)
+*Ball bearings offer lower friction, but are more fragile under axial load than needle-roller bearings.*
 
 ### Needle-Roller Bearings
 - Use thin cylindrical rollers instead of balls to reduce friction.
@@ -33,9 +33,9 @@ Ball bearings are popular in larger diameter weapons where low slop is crucial, 
 
 Needle-roller bearings are the best choice for vertical spinners due to their smaller diameter. Because the rollers roll directly on the shaft rather than on an inner race, it is recommended to use a **polished hardened steel shaft** with needle-rollers. Shafts made of softer material such as titanium or alloy steel can work, but will become indented by the rollers over time making them disposable. **Do not use aluminum shafts with needle-roller bearings.**
 
-![Needle-roller bearing](/img/wiki/weapon-stacks/needle-roller-bearing-1.png)
+![Needle-roller bearing](/img/wiki/weapon-stacks/needle-roller-bearing.png)
 
-![Needle-roller bearing](/img/wiki/weapon-stacks/needle-roller-bearing-2.png)
+*Needle-roller bearings roll directly on the shaft and need thrust washers to take axial loads.*
 
 :::note On bearing quality
 It's generally accepted in combat robotics that more expensive, higher quality (ABEC) bearings are not necessary, as the additional precision of these bearings is destroyed very quickly with weapon impacts. Any cheap bearings will work perfectly fine. **Uxcell** brand ones off Amazon are a very popular choice, or you can get bearings for as little as $0.50 apiece off Aliexpress.
@@ -54,18 +54,18 @@ Make sure to choose an **alloy steel** bolt rather than stainless steel, which i
 
 To use a shoulder bolt, simply pass the bolt through the weapon and both weapon mounts, and secure it with a nylock nut.
 
-![Shoulder bolt](/img/wiki/weapon-stacks/shoulder-bolt-1.png)
+![Shoulder bolt](/img/wiki/weapon-stacks/shoulder-bolt.png)
 
-![Shoulder bolt](/img/wiki/weapon-stacks/shoulder-bolt-2.png)
+*A precision-ground shoulder bolt used as a cheap, simple weapon shaft.*
 
 ### Hardened Steel Shafting + Shaft Collars
 Another option is to use a hardened steel shaft or rod of some sort, secured with **shaft collars**. This option allows you to use shafting made of materials that are more precise, harder, and stronger than a shoulder bolt, such as linear shaft, HSS tool blanks, or hardened dowel pins.
 
 The downside of this option is that shaft collars are large and exposed, and are more likely to loosen than a nylock nut. Make sure to use **clamping shaft collars** as opposed to set-screw shaft collars, since they're much more secure.
 
-![Shaft collars](/img/wiki/weapon-stacks/shaft-collar-1.png)
+![Shaft collars](/img/wiki/weapon-stacks/shaft-collar.png)
 
-![Shaft collars](/img/wiki/weapon-stacks/shaft-collar-2.png)
+*Clamping shaft collars secure a hardened steel shaft in place.*
 
 ### End-Tapped Linear Shafts (Recommended)
 The third option and most optimal solution is to use an **end-tapped linear shaft from Misumi**. This is a hardened steel shaft with tapped holes on either end, allowing it to be secured with screws. They are harder and stronger than a shoulder bolt, and do not suffer from exposed shaft collars. There is also a hollow option if you want to save some weight.
@@ -93,22 +93,18 @@ To figure out how far apart your pulleys need to be for a given profile, belt si
 
 ![Timing belt and pulley](/img/wiki/weapon-stacks/timing-belt-1.png)
 
-![Timing belt and pulley](/img/wiki/weapon-stacks/timing-belt-2.png)
-
-![Timing belt and pulley](/img/wiki/weapon-stacks/timing-belt-3.png)
+*Timing belts and pulleys transfer power without slipping.*
 
 **Downsides:** Because they have no slippage, shock can be transferred to the motor which can cause damage such as bent shafts. To mitigate this, some builders will choose to omit teeth on one or both of the pulleys and/or run the belt inverted to allow for slippage. One common method of doing this is by running a belt directly off the spinning can of an outrunner motor rather than using a pulley. Without teeth to engage, tensioning becomes important so it's recommended to use prototyping to find an optimal center-to-center distance, or implement some sort of tensioning mechanism.
 
-![Slipping belt drive](/img/wiki/weapon-stacks/belt-slip-1.png)
+![Slipping belt drive](/img/wiki/weapon-stacks/belt-slip.png)
 
-![Slipping belt drive](/img/wiki/weapon-stacks/belt-slip-2.png)
+*Letting the belt slip (for example by running it directly off the motor can) allows shock to be absorbed.*
 
 ### V-Belts
 For a more robust option, **V-belts** are a good choice. Rather than teeth, v-belts have a v-shaped profile that increases friction with the pulleys to transfer torque more effectively while still allowing for some slip. Finding small v-belts can be challenging, but **Repeat Robotics** stocks some small sizes of 6mm cogged v-belt that are a great size for beetles.
 
 One challenge with v-belts is that 3D-printing their pulleys is risky as the force of the belt's tension tends to split the pulley along its layer lines – printed pulleys can work if printed in a strong material with good layer adhesion like unfilled nylon, but most builders who use v-belts use custom aluminum pulleys making them a more expensive option.
-
-![V-belt](/img/wiki/weapon-stacks/v-belt-1.png)
 
 ### Gears
 Gears are a popular choice for weapon systems where the motor and weapon are fairly close together, such as undercutter or overhead horizontal spinners. They are simpler to design and more robust than pulley systems but less efficient, and since gears are usually 3D-printed, they can be prone to melting when subject to high RPMs.
@@ -123,11 +119,11 @@ Designing gears and timing pulleys manually in CAD is quite tedious, so it is re
 
 In the context of combat robotics, **hubmotors** refer to custom-built outrunner motors that are designed specifically to handle the shock loads of a weapon attached directly to the motor's spinning exterior. By eliminating the need for pulleys or gears, they can allow for a much more compact and robust weapon system.
 
-![Hubmotor](/img/wiki/weapon-stacks/hubmotor-1.png)
+![Hubmotor](/img/wiki/weapon-stacks/hubmotor.png)
+
+*A hubmotor - a custom outrunner designed to handle weapon shock loads with the weapon mounted directly.*
 
 Historically, the downside of a hubmotor was that it was very challenging and expensive to design and manufacture a motor capable of handling the shock loads experienced by the weapon system of a beetleweight. Most hubmotors used the stator and magnet ring from an off-the-shelf motor installed into a custom housing with greatly increased "beefyness" and much larger and better-positioned bearings.
-
-![Hubmotor](/img/wiki/weapon-stacks/hubmotor-2.png)
 
 Today, there are a few off-the-shelf options for beetleweight hubmotors that have made them much more popular. Hubmotors sold by **Repeat Robotics** and **Just 'Cuz Robotics** are easy to use, reliable, and come at a reasonable price. While they are still more expensive than a pulley or gear system with a regular motor, their ease of use and reliability makes them an excellent choice for beginners and experienced builders alike.
 

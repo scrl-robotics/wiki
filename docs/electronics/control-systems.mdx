@@ -56,13 +56,11 @@ The **Flysky FS-i6** has long been one of the most popular beginner's transmitte
 
 The FS-i6 uses the **AFHDS 2A protocol**, which is used by the majority of Flysky transmitters and receivers. It is also compatible with older AFHDS receivers. Most FS-i6's on Aliexpress are sold in a bundle with the **FS-iA6 or FS-iA6b receivers**, which work well but are rather large. Most people using this transmitter choose to use the **FS2A receiver**, which is a very small and cheap 4-channel receiver.
 
-![FS2A receiver](/img/wiki/control-systems/fs2a-receiver.png)
-
 You can solder wires directly to the FS2A, or you can solder on the included 90-degree pin header to use it with regular servo plugs. Soldering on the pin header backwards (i.e. with the pins facing inward) is recommended to save space.
 
 ![FS2A layout](/img/wiki/control-systems/fs2a-layout-1.png)
 
-![FS2A layout](/img/wiki/control-systems/fs2a-layout-2.png)
+*Soldering the pin header facing inward saves space.*
 
 :::note
 Because of its ubiquity, many combat-specific electronics components with built-in receivers such as the **Just 'Cuz Robotics Motherboard** or the **Malenki HV** are built around the FS2A receiver or AFHDS 2A protocol.
@@ -86,14 +84,10 @@ There are two types of receivers that are popular with the ELRS protocol:
 1. **Radiomaster's ER line of receivers**, which come in several versions supporting between 3 and 8 channels – the 3-channel (**ER3C-i**) and 4-channel (**ER4**) are the most common.
 2. **CRSF nano-receivers**, which are extremely small and inexpensive. However, using these receivers requires flashing custom firmware and doing some finicky soldering which is an advanced topic.
 
-![CRSF nano-receiver](/img/wiki/control-systems/elrs-receiver-2.png)
-
 ### Surface Transmitter Options
 If you are looking for a surface transmitter, the **Radiomaster MT12** is the best option. It offers the same great customizability as the Pocket and Zorro, and comes in both ELRS and 4in1 versions. For a more budget-friendly option, the **Radiolink RC4GS** works well but lacks the customizability of the MT12 – it works with any Radiolink-branded receiver.
 
 ![Surface radio](/img/wiki/control-systems/surface-radio-1.png)
-
-![Surface radio](/img/wiki/control-systems/surface-radio-2.png)
 
 ### Recommendations
 
@@ -117,8 +111,6 @@ First, your receiver will need power to complete the binding process. Connect a 
 In either case, the light on the receiver should start blinking rapidly.
 
 Next, enter binding mode on the FS-i6 transmitter. Turn it on while holding the **Bind button** near the bottom left of the screen. It should display "RXBinding…".
-
-![FS-i6 binding transmitter](/img/wiki/control-systems/fs-i6-binding-transmitter.png)
 
 If successful, the light of the receiver will turn solid, and the screen on the transmitter will go to the main menu. If you are using an FS2A, the transmitter will always get stuck on the RXBinding screen – **reboot the transmitter** to complete binding. If you're using a binding plug, remove it.
 

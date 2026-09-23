@@ -292,7 +292,7 @@ To deal with these voltage spikes, capacitors can be installed across the power 
 
 ![Capacitor on ESC](/img/wiki/electronics/capacitor.jpg)
 
-![Capacitor](/img/wiki/electronics/capacitor-2.png)
+*A capacitor soldered directly to the power input of a weapon ESC.*
 
 - Always choose a capacitor rated for voltages greater than generated voltage spikes – this can be difficult to measure, but **35V-rated capacitors** are common and good enough for almost all beetleweights.
 - Aluminum-polymer capacitors are preferred, but other types can work as well.
@@ -313,7 +313,9 @@ As mentioned before, a BEC is simply a voltage regulator that steps down the mai
 
 Receivers receive the signal from your transmitter and send signals to the ESCs to drive your motors accordingly. They come in many different shapes and sizes depending on your brand of transmitter and number of channels required, but almost all of them will have a number of three-pin sets. Each set corresponds to an output channel, and consists of a **signal pin, power/5V pin, and ground pin**. Some receivers will also have an additional VCC set, which can be used either as a BEC power input or as a 5V output for things like LEDs.
 
-![Receiver](/img/wiki/electronics/receiver-1.png)
+![Receiver](/img/wiki/electronics/receiver.png)
+
+*Receivers have three-pin sets per channel: signal, power, and ground.*
 
 Most ESCs will have a 3-pin signal cable that plugs into the receiver. The majority of drone ESCs will have only a signal and ground wire, while ESCs with a BEC will have all three wires. The BEC can be plugged into any channel, as the ground pins and 5V pins are shared across the receiver. Additionally, this means that the receiver only requires one ground connection, so each ESC actually only requires the signal wire to be connected as they all share a common ground through the BEC.
 
@@ -345,7 +347,9 @@ The appropriate size of wires and connectors depends heavily on the robot's powe
 
 It is always recommended to use **high-temperature silicone-insulated wire** rather than PVC-insulated wire, as it is much more flexible and heat-resistant.
 
-![Wires and connectors](/img/wiki/electronics/xt30-1.png)
+![Wires and connectors](/img/wiki/electronics/xt30.png)
+
+*The XT30 connector is sufficient for the majority of beetleweight wiring.*
 
 ### Connectors
 - The best choice is the common **XT30 connector** which is sufficient for 95% of beetleweight applications.

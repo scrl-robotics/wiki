@@ -13,9 +13,9 @@ This section isn't meant to be a comprehensive guide on 3D printing in general â
 
 A common question asked by beginners when 3D printing armor and other components that require durability is whether to increase the number of **perimeters** or **infill density**. Generally, a good rule of thumb is that more perimeters increases **strength**, while more infill increases **rigidity**. As such, for armor pieces that require high strength to resist damage as well as flexibility to absorb impacts, most builders opt to **maximize perimeters and minimize infill**.
 
-![Perimeters and infill](/img/wiki/3d-printing/perimeter-infill-1.png)
+![Perimeters and infill](/img/wiki/3d-printing/perimeter-infill.png)
 
-![Perimeters and infill](/img/wiki/3d-printing/perimeter-infill-2.png)
+*Maximum perimeters for strength and minimum infill for rigidity is a common armor recipe.*
 
 Lightweight sacrificial armor can function with as little as **3 perimeters** given sufficient thickness, while armor with as many as **8-12 perimeters** has been used with success. In terms of infill, **5-10%** is a good starting point, with **gyroid** and **cubic** being the preferred infill types. However, the print settings you choose should depend heavily on your specific application and weight constraints.
 
@@ -23,13 +23,13 @@ Lightweight sacrificial armor can function with as little as **3 perimeters** gi
 
 There's a common saying among builders that **air is the best armor**. In other words, spacing your crucial internal components as far away as possible from the opponent's weapon is the best way to protect them.
 
-![Airgap armor](/img/wiki/3d-printing/airgap-armor-1.png)
+![Airgap armor](/img/wiki/3d-printing/airgap-armor.png)
+
+*Hollow, low-infill ("airgap") armor keeps the opponent's weapon away from critical components while staying lightweight.*
 
 3D printing technology allows for the production of large, mostly hollow, lightweight parts with the use of a low infill %. Such parts are very effective as armor due to their ability to keep the opponent's weapon away from critical components whilst also being very lightweight. In general, from a pure effectiveness perspective, **thick hollow armor is more effective than thin, dense armor**.
 
 The downside of this type of hollow "air armor" is that it accumulates damage very quickly and must be replaced very often â€“ though this isn't usually a problem due to the low cost of 3D printed parts.
-
-![Airgap armor](/img/wiki/3d-printing/airgap-armor-2.png)
 
 ## Printing TPU
 
@@ -48,9 +48,9 @@ Increasing **print temperature and extrusion multiplier** ensures that the print
 
 Because of its flexible nature, TPU has a tendency to **underextrude**, especially with Bowden extruders. Because not enough material is being extruded, layers tend to not stick together causing them to delaminate on hits. As such, it is recommended to increase extrusion multiplier when working with TPU if your printer doesn't have automatic flow rate calibration. **105% extrusion for direct drive and 115% for Bowden** are good starting points in experience.
 
-![Printing TPU](/img/wiki/3d-printing/tpu-print.jpg)
+![Delaminated TPU print](/img/wiki/3d-printing/tpu-print-delamination.jpg)
 
-![TPU print settings](/img/wiki/3d-printing/tpu-print-2.png)
+*Delaminated TPU print - layers fail to stick together when the TPU is underextruded.*
 
 ### Overhangs & Supports
 Reducing overhangs and bridges is especially important with TPU as the material has a high tendency to droop, especially when printing at temperatures above the manufacturer's recommendation. Additionally, support material in TPU is very difficult to remove cleanly. If you require support material for your design, use **Tree supports** and clip them off individually with flush cutters afterward.
