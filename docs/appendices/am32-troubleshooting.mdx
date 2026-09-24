@@ -41,7 +41,7 @@ This happens when the ESC is **not receiving a neutral input value**.
 There are also other things that may cause these issues:
 
 - **Transmitter trim:** usually trim adjustments are small enough to be within the input deadzone and will still allow the ESC to arm, but if your trims are particularly extreme the ESC may not be able to read it as a neutral value causing it to not arm.
-- **Transmitter endpoints:** check if your transmitter endpoints span -100% to +100%, which is the full range of inputs. If the range is too small, the ESC may not be able to arm properly. How to set endpoints depends on your model of transmitter – take a look at the user guide to find out how.
+- **Transmitter endpoints:** check if your transmitter endpoints span -100% to +100%, which is the full range of inputs. If the range is too small, the ESC may not be able to arm properly. How to set endpoints depends on your model of transmitter. Take a look at the user guide to find out how.
 - **ESC servo settings:** As mentioned before, in bidirectional mode the ESC will only arm when it detects a signal of the set midpoint input +/- the set deadzone, while in unidirectional mode the ESC will only arm when it detects a signal below the set minimum input + the deadzone. If the servo settings are set incorrectly on the ESC, it may be looking for a midpoint or minimum value that is different from what the receiver is outputting. The recommended servo input settings for ESCs are approximately **1020-1500-1980**.
 
 ## ESC Arming, But Not Responsive
@@ -50,7 +50,7 @@ This is an uncommon issue and is usually caused by the receiver not outputting s
 
 For example, the **NeutronRC 70A** running older versions of AM32 would do this if you set the running brake level to 1.
 
-Most transmitters will allow you to read the signal values that they're outputting – if you've verified that the transmitter is in fact outputting the correct values, try updating your AM32 version to fix any potential bugs.
+Most transmitters will allow you to read the signal values that they're outputting. If you've verified that the transmitter is in fact outputting the correct values, try updating your AM32 version to fix any potential bugs.
 
 ## Motor Stuttering or Desyncing when Attempting to Spin Up
 
@@ -83,7 +83,7 @@ Sometimes, certain ESCs on certain versions of AM32 will struggle to work with c
 
 This happens most commonly as a result of **incorrectly set KV or motor poles**. Make sure these values match the specifications of your motor.
 
-If they do and issues still persist, it is likely a firmware issue – try updating your ESC to the latest version of AM32.
+If they do and issues still persist, it is likely a firmware issue. Try updating your ESC to the latest version of AM32.
 
 :::note
 If the motor spins up slightly the first time you attempt to spin up after powering on but refuses to spin on subsequent attempts, it is likely a firmware issue rather than a settings issue.
@@ -103,12 +103,12 @@ There are many different files under each firmware version configured for differ
 
 The **online tool** (am32.ca) is the more convenient tool as it automatically recognizes the configuration of firmware on your ESC and loads the latest versions of that particular type, from which you can choose one and flash directly.
 
-Unfortunately, it has been found to be unreliable for updating firmware as it often gets stuck while flashing. If it gets stuck, you must close the website and disconnect your ESC. This will not damage your ESC, but will **corrupt the firmware** – to recover the firmware, you must manually download the appropriate firmware file from the AM32 Github and upload it to the ESC.
+Unfortunately, it has been found to be unreliable for updating firmware as it often gets stuck while flashing. If it gets stuck, you must close the website and disconnect your ESC. This will not damage your ESC, but will **corrupt the firmware**. To recover the firmware, you must manually download the appropriate firmware file from the AM32 Github and upload it to the ESC.
 
 The **offline tool** is much more reliable for updating and flashing firmware, as it does not have issues with getting stuck during flashing. It is less convenient though, as you must manually download the appropriate firmware file from the AM32 Github and upload it to the ESC.
 
 :::note
-The configurator will sometimes say **"FLASH FAILURE"** after attempting to flash firmware – don't worry about this, it is a bug and the firmware has flashed successfully as long as the bar reached 100%.
+The configurator will sometimes say **"FLASH FAILURE"** after attempting to flash firmware. Don't worry about this, it is a bug and the firmware has flashed successfully as long as the bar reached 100%.
 :::
 
 Both the online and offline tool have an indicator that shows the firmware configuration and version. However, keep in mind that this **version indicator is unreliable** and often does not accurately reflect the version of firmware that is actually on the ESC. After updating firmware, sometimes the configurator must be closed entirely and the ESC power-cycled before the indicator will accurately reflect the new firmware version.

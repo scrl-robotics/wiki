@@ -49,7 +49,7 @@ Can be accomplished in many ways. The simplest and most compact is to **solder a
 
 ## Batteries
 
-Choice of battery is important as an insufficiently powerful battery may not last a whole match, or may not be able to withstand the required current draw and will take damage. On the other hand, an excessively large battery wastes a lot of space and weight – the battery is often the largest electronic component of a robot.
+Choice of battery is important as an insufficiently powerful battery may not last a whole match, or may not be able to withstand the required current draw and will take damage. On the other hand, an excessively large battery wastes a lot of space and weight. The battery is often the largest electronic component of a robot.
 
 When looking at a battery, there are a few important numbers that determine the battery's specs and performance: **capacity, voltage per cell** (determined by battery chemistry type), **cell count**, and **C-rating**.
 
@@ -57,10 +57,10 @@ When looking at a battery, there are a few important numbers that determine the 
 
 ### Battery Chemistry
 Most often either:
-- **Lithium Polymer (LiPo)** - nominal voltage per cell of **3.7V** and a maximum (full charge) voltage per cell of **4.2V**.
-- **High-Voltage Lithium Polymer (LiHV)** - nominal voltage per cell of **3.8V** and a maximum voltage per cell of **4.35V**.
+- **Lithium Polymer (LiPo)**: nominal voltage per cell of **3.7V** and a maximum (full charge) voltage per cell of **4.2V**.
+- **High-Voltage Lithium Polymer (LiHV)**: nominal voltage per cell of **3.8V** and a maximum voltage per cell of **4.35V**.
 
-LiHV batteries are generally preferred as they provide more power and are lighter. Make sure to select the correct setting on your charger – charging LiHV batteries with LiPo settings will not allow them to charge fully, while charging LiPo batteries with LiHV settings will damage them and potentially cause a fire.
+LiHV batteries are generally preferred as they provide more power and are lighter. Make sure to select the correct setting on your charger. Charging LiHV batteries with LiPo settings will not allow them to charge fully, while charging LiPo batteries with LiHV settings will damage them and potentially cause a fire.
 
 ### Cell Count
 Determines the layout of cells in the battery. S stands for series, which is the pattern that the cells are wired in. Thus, the total voltage of the battery is the cell voltage multiplied by the cell count. For example, a **4S LiHV** battery will have a nominal voltage of **15.2V** (3.8V * 4) and a max voltage of **17.4V** (4.35 * 4).
@@ -83,7 +83,7 @@ The ideal battery for a robot depends heavily on the design of the weapon system
 
 - Robots without active weapons or with simple lifter/grabber mechanisms generally run **3S or 4S** voltage, and can get away with low C-ratings and as little as **300mAh** capacity, though at least **450mAh** is recommended.
 - **850mAh 4S** is generally considered a good baseline for spinner robots.
-- Spinners that are larger (really big horizontals), have poor aerodynamics (beater bars), or spin unusually fast require more capacity – **4S 1100mAh** is generally considered a safe bet for these high-power weapons.
+- Spinners that are larger (really big horizontals), have poor aerodynamics (beater bars), or spin unusually fast require more capacity. **4S 1100mAh** is generally considered a safe bet for these high-power weapons.
 
 When running higher voltages, often current draw will decrease. As such, if you are running a higher-voltage battery you will often be able to **reduce the capacity**. Watt-hours are a measure of the total energy storage of a battery and can be calculated by multiplying the voltage by the capacity. Assuming that you are increasing voltage purely to decrease current rather than increasing power output, you can reduce the battery's capacity such that the watt-hours remain the same.
 
@@ -160,18 +160,18 @@ Yes, given the same input voltage a higher KV motor has greater output power. Th
 For example, let's say you have a spinning weapon powered by a 1000KV motor with a 1:1 external reduction, and the setup currently draws 10A of current. If you instead run a 2000KV motor of the same size with a 2:1 external reduction, the resulting output RPM will be the same but torque will be greater due to the motor's greater output power, allowing you to spin up faster. However, this setup now draws 20A and thus heats up much faster and may require a larger ESC or battery.
 
 **Q: When should I use low KV motors then?**
-As mentioned above, low KV motors have greater efficiency and draw less current. This comes at the cost of lower power – unless you run higher voltage to compensate.
+As mentioned above, low KV motors have greater efficiency and draw less current. This comes at the cost of lower power, unless you run higher voltage to compensate.
 
 A good way to think of it is this: motors of the same size and construction will have the same maximum power, regardless of KV. High KV motors are able to reach this maximum power at a lower voltage, but draw more current and produce more heat. On the other hand, low KV motors require more voltage to reach their maximum power output, but draw less power and produce less heat at this maximum output.
 
-Let's return to the above example – say your 1000KV 1:1 system pulling 10A is running on a 3S battery. If we use a 500KV motor of the same size, maintain the external reduction, and switch to a 6S battery, total output torque and RPM will remain the same but the setup will now draw only 5A, causing much less heat buildup. In fact, this is the main advantage of high voltage. Experienced builders run higher voltages not to achieve higher power, but to reduce current draw and heat buildup.
+Let's return to the above example: say your 1000KV 1:1 system pulling 10A is running on a 3S battery. If we use a 500KV motor of the same size, maintain the external reduction, and switch to a 6S battery, total output torque and RPM will remain the same but the setup will now draw only 5A, causing much less heat buildup. In fact, this is the main advantage of high voltage. Experienced builders run higher voltages not to achieve higher power, but to reduce current draw and heat buildup.
 
 ### Brushless Drive Motor Recommendations
 
-There are many options for brushless drive motors that are designed specifically for beetleweight combat robots. All of them are considered viable – choose one based on your desired balance of weight, durability, speed, power, and cost.
+There are many options for brushless drive motors that are designed specifically for beetleweight combat robots. All of them are considered viable. Choose one based on your desired balance of weight, durability, speed, power, and cost.
 
 :::note
-All brushless drive motors are outrunners, as small inrunners are far too fast – make sure to protect your wires from the spinning cans.
+All brushless drive motors are outrunners, as small inrunners are far too fast. Make sure to protect your wires from the spinning cans.
 :::
 
 Below is a handy chart listing and comparing the currently available beetleweight drive motor options and their specs. It also lists some recommended brushed and brushless drive ESCs.
@@ -217,7 +217,7 @@ There are many more options for brushless weapon motors, as unlike drive motors 
 *4in1 ESCs:* Some builders will run 4in1 ESCs designed for quadcopters. These ESCs have one power input, but four motor outputs and four signal wires.
 
 :::warning
-Many 4in1 ESCs will have a VCC pad next to the signal pads – **this is not a BEC!** It outputs the full battery voltage and will almost certainly fry your receiver if you try to use it as a BEC. Also keep in mind that 4in1 ESCs are drone ESCs, meaning they are unable to attain their rated max current in combat.
+Many 4in1 ESCs will have a VCC pad next to the signal pads. **This is not a BEC!** It outputs the full battery voltage and will almost certainly fry your receiver if you try to use it as a BEC. Also keep in mind that 4in1 ESCs are drone ESCs, meaning they are unable to attain their rated max current in combat.
 :::
 
 4in1 recommendations: Sequre Blueson series, Flywoo Goku series, NeutronRC Hold Mini 45A (for smaller weapons like hammersaws). Most 4in1's from reputable brands will work fine.
@@ -228,7 +228,7 @@ Brushless ESCs are one of the more complex topics in combat robotics. Working wi
 
 As previously mentioned, brushless ESCs must employ complex logic to properly drive a brushless motor. As such, they have many parameters that must be properly set in order to ensure optimal performance. What settings are available and how they are changed depends on the type of firmware on the ESC, but the vast majority of ESCs offer some way to change settings.
 
-Brushless ESCs have three output tabs that connect to the three phase wires of the motor. They can be connected in any order – if the motor spins the wrong way, swap any two to reverse the direction.
+Brushless ESCs have three output tabs that connect to the three phase wires of the motor. They can be connected in any order. If the motor spins the wrong way, swap any two to reverse the direction.
 
 When searching for brushless ESCs, there are three important specifications that you should consider when making a choice:
 
@@ -238,17 +238,17 @@ When searching for brushless ESCs, there are three important specifications that
 Determines the range of input voltage that the ESC can handle. It is often stated as the number of LiPo cells in series, for example **3S-6S**. Some ESCs can work with voltages lower than their rating, but may not perform as well.
 
 :::warning
-Never exceed the voltage rating of an ESC. Additionally, be careful when using LiHV batteries as some ESCs may not be built to handle the increased voltage – for example, an ESC rated for 3S-6S LiPo may die if subject to 6S LiHV.
+Never exceed the voltage rating of an ESC. Additionally, be careful when using LiHV batteries as some ESCs may not be built to handle the increased voltage. For example, an ESC rated for 3S-6S LiPo may die if subject to 6S LiHV.
 :::
 
 ### Current Rating
 Determines the maximum current that the ESC can output. When choosing an appropriate current rating, keep in mind that the motor will pull current from the battery, through the ESC. The ESC does not "push" current into the motor. As such, the ESC should have a current rating greater than what the motor draws.
 
-Many motors will have a "max current" rating listed that is quite high – however, most of the time you don't actually need an ESC with a current rating higher than the motor's "max current" since it will only draw this current for very short periods of time when starting up. Some of the higher-end motor manufacturers will list continuous current ratings for their motors with different types of propellers for drone and airplane builders – these ratings often provide a better idea of how much current the motor will actually pull.
+Many motors will have a "max current" rating listed that is quite high. However, most of the time you don't actually need an ESC with a current rating higher than the motor's "max current" since it will only draw this current for very short periods of time when starting up. Some of the higher-end motor manufacturers will list continuous current ratings for their motors with different types of propellers for drone and airplane builders. These ratings often provide a better idea of how much current the motor will actually pull.
 
 ### Firmware Types
 
-Brushless ESCs come with a variety of different firmware types that determine the ESCs performance, available settings, and how they are changed. Most ESCs will run some type of proprietary firmware that will require a specific programming card or USB adapter – these ones are not recommended for combat. Many of the more popular options run open-source firmware that have greater functionality and are much easier to work with.
+Brushless ESCs come with a variety of different firmware types that determine the ESCs performance, available settings, and how they are changed. Most ESCs will run some type of proprietary firmware that will require a specific programming card or USB adapter. These ones are not recommended for combat. Many of the more popular options run open-source firmware that have greater functionality and are much easier to work with.
 
 ### ESC Form Factors
 
@@ -261,7 +261,7 @@ The most popular type of ESC for beetleweight robots. They come in a variety of 
 
 - **BlHeli_S** is an older open-source firmware that can be found on many very cheap drone ESCs. It is reliable but has worse performance and less customizable settings than other options. Settings are changed through the BlHeli Configurator.
 - **BlHeli_32** is a newer upgraded version of BlHeli_S that offers improved performance and more customizability. Unfortunately, it is closed-source and the company licensing the firmware recently shut down. As a result, most ESC manufacturers now use an unofficial version of the firmware that cannot be updated and requires a modified version of the BlHeli_32 configurator to change settings.
-- **AM32** was originally developed as an open-source alternative to BlHeli_32, but has rapidly increased in popularity after BlHeli_32 shut down. It offers the greatest amount of customizability and performance, and is actively being updated – however, it can suffer from some reliability issues. Settings are changed through am32.ca or the Multi ESC Config Tool. AM32 is currently the most popular firmware due to its availability and high level of performance.
+- **AM32** was originally developed as an open-source alternative to BlHeli_32, but has rapidly increased in popularity after BlHeli_32 shut down. It offers the greatest amount of customizability and performance, and is actively being updated. However, it can suffer from some reliability issues. Settings are changed through am32.ca or the Multi ESC Config Tool. AM32 is currently the most popular firmware due to its availability and high level of performance.
 
 :::warning
 One important thing to keep in mind when using drone ESCs is that their current ratings assume high airflow from a drone propeller. Thus, they cannot achieve their maximum performance when confined inside the chassis of a combat robot and as such **you should never trust a drone ESC to be able to actually handle its listed current rating in combat robots**. How much current a drone ESC can actually handle with respect to its rating depends heavily on the quality and design of the ESC, so often it's best to simply choose a proven and popular ESC for your application instead of focusing on ratings.
@@ -270,7 +270,7 @@ Additionally, most drone ESCs do not have a built-in BEC, so you must use an ext
 :::
 
 #### Airplane ESCs
-Can be distinguished from drone ESCs as they are larger, often have capacitors attached on the power input side, and have a built-in BEC. As they are designed to sit inside the chassis of an RC plane, they do not assume airflow and as such have much more thermal mass – thus, they are much more likely to be able to achieve their rated current.
+Can be distinguished from drone ESCs as they are larger, often have capacitors attached on the power input side, and have a built-in BEC. As they are designed to sit inside the chassis of an RC plane, they do not assume airflow and as such have much more thermal mass. Thus, they are much more likely to be able to achieve their rated current.
 
 Unfortunately, most airplane ESCs run old proprietary firmwares that are difficult to work with and have lower performance. Airplane ESCs are common for weapon systems in 12lb or 30lb robots, but are rare in beetleweights due to their large size.
 
@@ -294,22 +294,22 @@ To deal with these voltage spikes, capacitors can be installed across the power 
 
 *A capacitor soldered directly to the power input of a weapon ESC.*
 
-- Always choose a capacitor rated for voltages greater than generated voltage spikes – this can be difficult to measure, but **35V-rated capacitors** are common and good enough for almost all beetleweights.
+- Always choose a capacitor rated for voltages greater than generated voltage spikes. This can be difficult to measure, but **35V-rated capacitors** are common and good enough for almost all beetleweights.
 - Aluminum-polymer capacitors are preferred, but other types can work as well.
-- The required capacitance depends greatly on the specifics of your setup – capacitors used can range from **300μF to upwards of 1000μF**.
+- The required capacitance depends greatly on the specifics of your setup. Capacitors used can range from **300μF to upwards of 1000μF**.
 
-An easy way to determine if your capacitor is big enough is by aggressively spinning your weapon up and down for three minutes and checking how hot the capacitor is – if it's uncomfortably hot, you probably need a bigger one.
+An easy way to determine if your capacitor is big enough is by aggressively spinning your weapon up and down for three minutes and checking how hot the capacitor is. If it's uncomfortably hot, you probably need a bigger one.
 
 :::note
-Capacitors generally are not required on 3S and 4S systems – but if you notice your robot becoming unresponsive after big hits, a capacitor may be a good solution. Capacitors are recommended for 5S or 6S systems where voltage spikes are more severe. When in doubt, it never hurts to add a capacitor for peace of mind.
+Capacitors generally are not required on 3S and 4S systems, but if you notice your robot becoming unresponsive after big hits, a capacitor may be a good solution. Capacitors are recommended for 5S or 6S systems where voltage spikes are more severe. When in doubt, it never hurts to add a capacitor for peace of mind.
 :::
 
 ## Receivers and BECs
 
 As mentioned before, a BEC is simply a voltage regulator that steps down the main battery voltage to a lower level that is safe for receivers and servos.
 
-- Receivers have very low power demand, so you do not have to be picky about your choice of BEC - anything that outputs **5V** is likely good enough for a receiver.
-- Servos require a larger BEC – select one that matches the maximum voltage and current ratings of your servo.
+- Receivers have very low power demand, so you do not have to be picky about your choice of BEC. Anything that outputs **5V** is likely good enough for a receiver.
+- Servos require a larger BEC: select one that matches the maximum voltage and current ratings of your servo.
 
 Receivers receive the signal from your transmitter and send signals to the ESCs to drive your motors accordingly. They come in many different shapes and sizes depending on your brand of transmitter and number of channels required, but almost all of them will have a number of three-pin sets. Each set corresponds to an output channel, and consists of a **signal pin, power/5V pin, and ground pin**. Some receivers will also have an additional VCC set, which can be used either as a BEC power input or as a 5V output for things like LEDs.
 
@@ -360,8 +360,8 @@ Whether you use connectors at all depends on your desired balance of repairabili
 
 ### Soldering
 
-Soldering technique is outside the scope of this guide, but learning to solder is **highly recommended** – it's a crucial skill and not one to avoid when building robots.
+Soldering technique is outside the scope of this guide, but learning to solder is **highly recommended**. It's a crucial skill and not one to avoid when building robots.
 
-- For beginners, using a **leaded solder** is recommended – it is much easier to work with than lead-free and is perfectly safe as long as you wash your hands afterwards.
+- For beginners, using a **leaded solder** is recommended. It is much easier to work with than lead-free and is perfectly safe as long as you wash your hands afterwards.
 - Investing in a **high-quality soldering iron** is highly recommended, as a cheap soldering iron not only makes your job unnecessarily difficult, but can be a fire hazard.
-- Get yourself some **helping hands** – they make a huge difference.
+- Get yourself some **helping hands**. They make a huge difference.

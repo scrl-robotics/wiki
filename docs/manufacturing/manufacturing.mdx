@@ -42,13 +42,13 @@ Most people won't have direct access to such machines, and thus order parts thro
 
 ### Design Considerations
 
-One of the downsides of laser cutting is that the heat from the laser can damage the edges of cut parts, especially on very small features such as gear teeth or thin bridges. This issue is more serious on thicker parts. As such, it is advised to **avoid small or thin features**. SendCutSend lists minimum bridge thickness and hole-to-edge distance for each material and thickness offered – it is recommended to refer to these charts when designing parts for laser-cutting.
+One of the downsides of laser cutting is that the heat from the laser can damage the edges of cut parts, especially on very small features such as gear teeth or thin bridges. This issue is more serious on thicker parts. As such, it is advised to **avoid small or thin features**. SendCutSend lists minimum bridge thickness and hole-to-edge distance for each material and thickness offered. It is recommended to refer to these charts when designing parts for laser-cutting.
 
 The laser's heat can also leave blobs of melted material on cut edges, as well as slightly softening hardened steels like AR500 reducing their durability a bit. However, the accessibility and low cost of laser cutting due to services like SCS make it difficult to compete with.
 
 One consideration with laser cutting (or any form of 2D manufacturing) is to **reduce the number of pierces** required to cut the part. In other words, reducing the number of individual non-connected cuts will reduce the amount of time required to cut the part, and as such will reduce cost.
 
-Most services that do 2D cutting will accept a **.DXF file**, which most CAD programs can export – simply select the face of your part that forms the profile that you would like to be cut and export it as a .DXF file. Make sure to specify the units (inches or mm) when sending them in – don't want to end up with a part that's 25.4x too big or small!
+Most services that do 2D cutting will accept a **.DXF file**, which most CAD programs can export. Simply select the face of your part that forms the profile that you would like to be cut and export it as a .DXF file. Make sure to specify the units (inches or mm) when sending them in. Don't want to end up with a part that's 25.4x too big or small!
 
 ## Waterjet Cutting
 
@@ -71,11 +71,11 @@ CNC routing is generally the method of choice for cutting **plastics and composi
 
 *CNC routers produce clean, precise cuts in plastics and composites.*
 
-CNC routers come in many shapes and sizes, from cheap desktop units that can be bought on Amazon for a few hundred dollars to much larger industrial machines. A CNC router is a very useful tool to have, but if you plan to purchase one of the cheap consumer-oriented machines keep in mind most of them are relatively low quality and require a lot of tinkering to get them working – however, once dialled in these machines are plenty sufficient for cutting the softer plastics like UHMW that are popular in beetleweights.
+CNC routers come in many shapes and sizes, from cheap desktop units that can be bought on Amazon for a few hundred dollars to much larger industrial machines. A CNC router is a very useful tool to have, but if you plan to purchase one of the cheap consumer-oriented machines keep in mind most of them are relatively low quality and require a lot of tinkering to get them working. However, once dialled in these machines are plenty sufficient for cutting the softer plastics like UHMW that are popular in beetleweights.
 
 Most people instead choose to use a manufacturing service to produce their UHMW, carbon fiber, or garolite parts. Two of the most popular are **CNCMadness** and **RSL**, both of which provide high-quality plastic and composite parts at low prices.
 
-The main consideration when designing for CNC routing stems from the fact that cuts are performed by a **round endmill** – as such, **sharp internal corners are impossible to cut**. This can be problematic when trying to fit parts with sharp external corners into pockets in a CNC routed part, so it is recommended to implement **dogbones** in your design to allow for proper fit of parts with sharp external corners.
+The main consideration when designing for CNC routing stems from the fact that cuts are performed by a **round endmill**. As such, **sharp internal corners are impossible to cut**. This can be problematic when trying to fit parts with sharp external corners into pockets in a CNC routed part, so it is recommended to implement **dogbones** in your design to allow for proper fit of parts with sharp external corners.
 
 ![CNC pocket with dogbones](/img/wiki/manufacturing/cnc-pocket.png)
 
@@ -87,7 +87,7 @@ Manufacturing 3D parts in metal or solid (non 3D-printed) plastics is quite expe
 
 Designing for 3D parts is a very complex topic. It is generally not recommended to incorporate 3D machined parts into a beginner build as they are very expensive and will likely be rendered obsolete as you make changes to your design.
 
-If you do require a 3D machine part, most people will outsource to **Chinese prototype shops** as manufacturing in North America is exorbitantly expensive. **LTCentury**, **Zintilon**, and **RapidDirect** are popular choices – the three are pretty comparable in terms of pricing and quality and many builders will simply get quotes from all three and select the cheapest one. It is recommended to avoid **PCBWay** especially for less common materials as their material authenticity quality control can be dubious; although, they have good prices for metal 3D-printing.
+If you do require a 3D machine part, most people will outsource to **Chinese prototype shops** as manufacturing in North America is exorbitantly expensive. **LTCentury**, **Zintilon**, and **RapidDirect** are popular choices. The three are pretty comparable in terms of pricing and quality and many builders will simply get quotes from all three and select the cheapest one. It is recommended to avoid **PCBWay** especially for less common materials as their material authenticity quality control can be dubious; although, they have good prices for metal 3D-printing.
 
 :::warning Note on Hardening
 If you are ordering a solid steel beater bar or drum spinner, you **must get it hardened** in order for it to be an effective weapon. The above Chinese shops can harden it for you for a relatively low price, but their quality control is lower so the hardness can be out of spec. It is highly recommended to ask for a **hardness test** to confirm the correct hardness is hit. A safer option is hardening at a local heat-treatment shop, but this can be inaccessible and expensive.

@@ -12,13 +12,13 @@ Every page on the wiki has an **Edit this page** link at the bottom. Clicking it
 
 1. **Fork** the repository.
 2. Create a new `.mdx` file in the appropriate folder under `docs/`:
-   - `docs/getting-started/` - intro material, rules, safety
-   - `docs/robot-design/` - archetypes, ground game, materials, construction
-   - `docs/drive-systems/` - drivetrains, wheels, weapons
-   - `docs/manufacturing/` - how parts are made
-   - `docs/electronics/` - wiring, ESCs, control systems
-   - `docs/testing-and-safety/` - testing, LiPo safety, competitions
-   - `docs/appendices/` - advanced/niche topics
+   - `docs/getting-started/`: intro material, rules, safety
+   - `docs/robot-design/`: archetypes, ground game, materials, construction
+   - `docs/drive-systems/`: drivetrains, wheels, weapons
+   - `docs/manufacturing/`: how parts are made
+   - `docs/electronics/`: wiring, ESCs, control systems
+   - `docs/testing-and-safety/`: testing, LiPo safety, competitions
+   - `docs/appendices/`: advanced/niche topics
 3. Add front matter with a `slug` and a `sidebar_position`:
 
    ```yaml

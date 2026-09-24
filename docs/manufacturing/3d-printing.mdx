@@ -7,7 +7,7 @@ slug: /manufacturing/3d-printing
 
 3D printing is a technology that has truly revolutionized manufacturing in recent years, and it has played a major role in the evolution of combat robots as well, especially beetleweights. Almost any component on the average beetle can be 3D-printed for a very low price, making it easier than ever to get into the sport.
 
-This section isn't meant to be a comprehensive guide on 3D printing in general – it would take far too long and besides there are many resources online that do a much better job of explaining the technology. As such, this section will focus on specific 3D-printing considerations that are important in a combat robotics context.
+This section isn't meant to be a comprehensive guide on 3D printing in general. It would take far too long and besides there are many resources online that do a much better job of explaining the technology. As such, this section will focus on specific 3D-printing considerations that are important in a combat robotics context.
 
 ## Perimeters and Infill
 
@@ -29,7 +29,7 @@ There's a common saying among builders that **air is the best armor**. In other 
 
 3D printing technology allows for the production of large, mostly hollow, lightweight parts with the use of a low infill %. Such parts are very effective as armor due to their ability to keep the opponent's weapon away from critical components whilst also being very lightweight. In general, from a pure effectiveness perspective, **thick hollow armor is more effective than thin, dense armor**.
 
-The downside of this type of hollow "air armor" is that it accumulates damage very quickly and must be replaced very often – though this isn't usually a problem due to the low cost of 3D printed parts.
+The downside of this type of hollow "air armor" is that it accumulates damage very quickly and must be replaced very often, though this isn't usually a problem due to the low cost of 3D printed parts.
 
 ## Printing TPU
 
@@ -50,7 +50,7 @@ Because of its flexible nature, TPU has a tendency to **underextrude**, especial
 
 ![Delaminated TPU print](/img/wiki/3d-printing/tpu-print-delamination.jpg)
 
-*Delaminated TPU print - layers fail to stick together when the TPU is underextruded.*
+*Delaminated TPU print: layers fail to stick together when the TPU is underextruded.*
 
 ### Overhangs & Supports
 Reducing overhangs and bridges is especially important with TPU as the material has a high tendency to droop, especially when printing at temperatures above the manufacturer's recommendation. Additionally, support material in TPU is very difficult to remove cleanly. If you require support material for your design, use **Tree supports** and clip them off individually with flush cutters afterward.
@@ -81,10 +81,10 @@ If using fiber-reinforced filaments, make sure to use a **hardened nozzle** as t
 :::
 
 ### Drying
-Drying your filament is even more important with nylon than TPU, especially when using PA6. PA6 is one of the most hygroscopic plastics and will yield extremely weak and low-quality parts if printed wet. A high-quality filament dryer or food dehydrator is mandatory – dry at **at least 70 degrees for 12-24 hours**. Also, make sure to print directly out of the filament dryer or a sealed drybox – PA6 can absorb enough water to affect print quality in as little as a few hours. If using PA12, drying is less crucial and parts printed with undried filament will suffer in quality but generally maintain sufficient structural integrity.
+Drying your filament is even more important with nylon than TPU, especially when using PA6. PA6 is one of the most hygroscopic plastics and will yield extremely weak and low-quality parts if printed wet. A high-quality filament dryer or food dehydrator is mandatory. Dry at **at least 70 degrees for 12-24 hours**. Also, make sure to print directly out of the filament dryer or a sealed drybox. PA6 can absorb enough water to affect print quality in as little as a few hours. If using PA12, drying is less crucial and parts printed with undried filament will suffer in quality but generally maintain sufficient structural integrity.
 
 ### Bed Adhesion
-Using an appropriate bed adhesive is crucial for successful nylon prints. Nylon has very poor adhesion to most build plate materials including PEI – and in addition to its tendency to warp, parts will very easily warp off the bed and break loose if adhesive is not used. A plain **PVA glue stick** is enough to provide excellent adhesion for nylon.
+Using an appropriate bed adhesive is crucial for successful nylon prints. Nylon has very poor adhesion to most build plate materials including PEI. In addition to its tendency to warp, parts will very easily warp off the bed and break loose if adhesive is not used. A plain **PVA glue stick** is enough to provide excellent adhesion for nylon.
 
 ### Enclosure & Warping
 Using an enclosure is very important when working with nylon, especially if it does not have carbon or glass fiber reinforcement. Without a heated enclosure, nylon tends to warp quite badly. A dedicated heated enclosure capable of hitting **60 degrees** is best, but in a pinch something as simple as a cardboard box or plant grow tent can prevent warping in parts that aren't particularly large. Carbon or glass fiber reinforced nylons do not strictly require an enclosure, but can still generally benefit from one.
@@ -102,7 +102,7 @@ Nylon is an interesting material in that there are several ways to post-process 
 Involves heating nylon parts to **80-100 degrees overnight** and allowing them to cool slowly. This relieves internal stresses in the part, and changes the chemical structure of the polymer to improve strength. Annealing has no significant drawbacks and should always be recommended for nylon prints if possible.
 
 #### Moisture Conditioning
-Involves reintroducing moisture to the nylon part. This can be accomplished by leaving the part in a humid environment for a few days or weeks – alternatively, this process can be completed faster and to a greater degree by **boiling the part for 10 minutes or so**. Parts can also be dyed using **Rit dye** during the boiling process.
+Involves reintroducing moisture to the nylon part. This can be accomplished by leaving the part in a humid environment for a few days or weeks. Alternatively, this process can be completed faster and to a greater degree by **boiling the part for 10 minutes or so**. Parts can also be dyed using **Rit dye** during the boiling process.
 
 Moisture conditioning greatly increases the flexibility of nylon, making it much tougher and more impact resistant. It is a good idea in parts that may see impact forces such as weapon pulleys or external frame components.
 

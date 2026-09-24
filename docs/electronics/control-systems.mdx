@@ -37,7 +37,7 @@ Surface transmitters were originally designed for RC cars, so their inputs are d
 
 Surface transmitters generally allow for more accurate driving, since they are optimized for RC cars that are much more similar to combat robots than drones or airplanes. Like with air transmitters, the two drive ESCs are connected to CH 1 and 2 through mixed inputs.
 
-The downside of surface transmitters is that only two inputs are easily accessible, making it more difficult to operate the weapon system. Solutions to this problem vary by preference and by the particular model of transmitter – some drivers assign CH 3 to an auxiliary knob and use that to operate the weapon, while others will use a multi-position switch or series of buttons that set CH 3 to a predetermined set of inputs, allowing weapon speed to be set to a series of predetermined speeds.
+The downside of surface transmitters is that only two inputs are easily accessible, making it more difficult to operate the weapon system. Solutions to this problem vary by preference and by the particular model of transmitter. Some drivers assign CH 3 to an auxiliary knob and use that to operate the weapon, while others will use a multi-position switch or series of buttons that set CH 3 to a predetermined set of inputs, allowing weapon speed to be set to a series of predetermined speeds.
 
 ![Surface transmitter](/img/wiki/control-systems/surface-transmitter.png)
 
@@ -67,25 +67,25 @@ Because of its ubiquity, many combat-specific electronics components with built-
 :::
 
 ### Radiomaster Pocket / Zorro
-An alternative to the FS-i6 that has been rapidly increasing in popularity in recent years are the **Pocket** or **Zorro** transmitters from **Radiomaster**. The Zorro is more expensive than the Pocket but has higher-quality components – otherwise, their main difference is form factor.
+An alternative to the FS-i6 that has been rapidly increasing in popularity in recent years are the **Pocket** or **Zorro** transmitters from **Radiomaster**. The Zorro is more expensive than the Pocket but has higher-quality components. Otherwise, their main difference is form factor.
 
 - These transmitters are more expensive than the FS-i6 but come with the **EdgeTX firmware** which offers far more customizability.
 - They also have much better build quality, and run on rechargeable batteries rather than AA's.
 
 ![Radiomaster Pocket](/img/wiki/control-systems/radiomaster-pocket.png)
 
-The Radiomaster transmitters mainly use a protocol called **ELRS**, which is a modern and open-source protocol with many powerful and useful functions – from a performance standpoint, it is the preferred protocol for combat robots (and most RC things in general).
+The Radiomaster transmitters mainly use a protocol called **ELRS**, which is a modern and open-source protocol with many powerful and useful functions. From a performance standpoint, it is the preferred protocol for combat robots (and most RC things in general).
 
 ![ELRS receiver](/img/wiki/control-systems/elrs-receiver-1.png)
 
 However, if you already have non-ELRS receivers on hand, the Pocket can be bought in a **CC2500 version** which is compatible with several other protocols, and the Zorro can be bought in a **4in1 version** which is also compatible with several other (different) protocols, most importantly AFHDS 2A.
 
 There are two types of receivers that are popular with the ELRS protocol:
-1. **Radiomaster's ER line of receivers**, which come in several versions supporting between 3 and 8 channels – the 3-channel (**ER3C-i**) and 4-channel (**ER4**) are the most common.
+1. **Radiomaster's ER line of receivers**, which come in several versions supporting between 3 and 8 channels. The 3-channel (**ER3C-i**) and 4-channel (**ER4**) are the most common.
 2. **CRSF nano-receivers**, which are extremely small and inexpensive. However, using these receivers requires flashing custom firmware and doing some finicky soldering which is an advanced topic.
 
 ### Surface Transmitter Options
-If you are looking for a surface transmitter, the **Radiomaster MT12** is the best option. It offers the same great customizability as the Pocket and Zorro, and comes in both ELRS and 4in1 versions. For a more budget-friendly option, the **Radiolink RC4GS** works well but lacks the customizability of the MT12 – it works with any Radiolink-branded receiver.
+If you are looking for a surface transmitter, the **Radiomaster MT12** is the best option. It offers the same great customizability as the Pocket and Zorro, and comes in both ELRS and 4in1 versions. For a more budget-friendly option, the **Radiolink RC4GS** works well but lacks the customizability of the MT12. It works with any Radiolink-branded receiver.
 
 ![Surface radio](/img/wiki/control-systems/surface-radio-1.png)
 
@@ -112,7 +112,7 @@ In either case, the light on the receiver should start blinking rapidly.
 
 Next, enter binding mode on the FS-i6 transmitter. Turn it on while holding the **Bind button** near the bottom left of the screen. It should display "RXBinding…".
 
-If successful, the light of the receiver will turn solid, and the screen on the transmitter will go to the main menu. If you are using an FS2A, the transmitter will always get stuck on the RXBinding screen – **reboot the transmitter** to complete binding. If you're using a binding plug, remove it.
+If successful, the light of the receiver will turn solid, and the screen on the transmitter will go to the main menu. If you are using an FS2A, the transmitter will always get stuck on the RXBinding screen. **Reboot the transmitter** to complete binding. If you're using a binding plug, remove it.
 
 ![FS-i6 binding success](/img/wiki/control-systems/fs-i6-binding-success.jpg)
 
@@ -123,7 +123,7 @@ ELRS transmitters and receivers support several different types of binding, but 
 **To set up a bind phrase on the transmitter:**
 1. Power on your transmitter and press the **SYS** button to access the system settings.
 2. Navigate to **ExpressLRS → WiFi Connectivity** and click **Enable WiFi**. This will turn on the transmitter's WiFi hotspot.
-   > Sometimes the ExpressLRS menu takes a long time to load - this is normal. However, if it is taking an unusually long time (>5mins or so), navigate to **MDL → Setup → Internal RF** and ensure that Mode is set to CRSF.
+   > Sometimes the ExpressLRS menu takes a long time to load, and this is normal. However, if it is taking an unusually long time (>5mins or so), navigate to **MDL → Setup → Internal RF** and ensure that Mode is set to CRSF.
 3. On a computer or mobile device, connect to the WiFi network **"ExpressLRS TX"** using the password **"expresslrs"**.
 4. Once connected, a menu will pop up on your screen. Under the **Options** tab, enter your **Bind Phrase**. Any receivers with the same phrase will automatically bind to your transmitter.
 5. Hit **Save & Reboot** to save your settings, then disconnect from the transmitter WiFi and turn it off.
@@ -145,7 +145,7 @@ Now, connect your ESC signal wires to your receivers:
 - Any sort of bi-directional arm goes in **channel 4**
 - The BEC can plug into any unused channel
 
-Make sure they're plugged in the correct direction – most receivers will have markings indicating which way the signal, power, and ground wires should go. For the FS2A, see the pinout diagram below, and mind the orientation of the receiver.
+Make sure they're plugged in the correct direction. Most receivers will have markings indicating which way the signal, power, and ground wires should go. For the FS2A, see the pinout diagram below, and mind the orientation of the receiver.
 
 ![FS2A pinout](/img/wiki/control-systems/fs2a-pinout.png)
 
@@ -202,7 +202,7 @@ The mix screen should look like this when you're done:
 
 4. Finally, utilize the steps listed in the above section to finish configuring your drive.
 
-Reversing can also be done on the transmitter – press the **MDL** button then scroll until you reach the **Output** screen. You can then reverse by editing the channel you'd like to reverse, and clicking Direction to enable INV.
+Reversing can also be done on the transmitter. Press the **MDL** button then scroll until you reach the **Output** screen. You can then reverse by editing the channel you'd like to reverse, and clicking Direction to enable INV.
 
 ## Setting Failsafe
 
@@ -219,7 +219,7 @@ Setting failsafe is a bit weird when working with FS2A receivers. There are two 
 ![FS2A chip versions](/img/wiki/control-systems/fs2a-chip.png)
 
 - The **square chip** versions will obey failsafe values set on the transmitter, but may require the robot to be power-cycled once or twice after setting the failsafe for it to start working properly.
-- **Rectangle chip** versions ignore failsafe settings set on the transmitter – instead, while your robot is on and the transmitter sticks are at the values you would like the robot to failsafe to, **press and hold the button until the light flashes a few times**. This will save the current input values as failsafe values.
+- **Rectangle chip** versions ignore failsafe settings set on the transmitter. Instead, while your robot is on and the transmitter sticks are at the values you would like the robot to failsafe to, **press and hold the button until the light flashes a few times**. This will save the current input values as failsafe values.
 
 ### Setting Failsafe on ELRS Receivers
 
